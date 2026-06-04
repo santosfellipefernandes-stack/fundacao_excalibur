@@ -3,19 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORACULO - Portal de Acesso</title>
+    <title>ARES - Sistema de Acesso</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body class="login-body">
     <!-- Background com efeito de partículas -->
     <div class="particles" id="particles"></div>
 
-    <!-- Container Principal -->
-    <div class="login-container">
+    <!-- ETAPA 1: Tela de Código -->
+    <div class="code-screen" id="codeScreen">
+        <div class="code-container">
+            <div class="code-header">
+                <h1 class="code-title">ARES</h1>
+                <p class="code-subtitle">Sistema de Acesso Seguro</p>
+            </div>
+
+            <div class="code-content">
+                <div class="code-display" id="codeDisplay">
+                    <span class="code-text">█████████████████</span>
+                </div>
+
+                <div class="code-input-wrapper">
+                    <input 
+                        type="text" 
+                        id="codeInput" 
+                        class="code-input" 
+                        placeholder="Digite o código..."
+                        autocomplete="off"
+                    >
+                    <div class="input-line"></div>
+                </div>
+
+                <div class="code-hint">
+                    <p>💡 Dica: Digite "EXCALIBUR" para continuar</p>
+                </div>
+
+                <div class="code-feedback" id="codeFeedback"></div>
+
+                <button class="code-button" onclick="submitCode()">ACESSAR</button>
+            </div>
+
+            <div class="code-footer">
+                <p class="back-text">
+                    <a href="index.html" class="back-link">← Voltar ao Portal de Notícias</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ETAPA 2: Painel Login (Aparece Depois) -->
+    <div class="login-container" id="loginContainer" style="display: none;">
         <!-- Painel Esquerdo - Informações -->
         <div class="info-panel">
             <div class="info-content">
-                <h1 class="ares-title">ORACULO</h1>
+                <h1 class="ares-title">ARES</h1>
                 <p class="ares-subtitle">Agência de Resposta a Entidades Sobrenaturais</p>
                 
                 <div class="info-divider"></div>
@@ -31,7 +72,7 @@
                 </div>
 
                 <div class="back-button-container">
-                    <a href="index.html" class="back-link">← Voltar ao Portal de Notícias</a>
+                    <a href="javascript:backToCode()" class="back-link">← Voltar</a>
                 </div>
             </div>
         </div>
@@ -165,7 +206,7 @@
                 <button class="modal-close" onclick="closeModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <p>Preencha os dados para solicitar acesso ao sistema Oraculo.</p>
+                <p>Preencha os dados para solicitar acesso ao sistema ARES.</p>
                 <input 
                     type="text" 
                     placeholder="Nome Completo" 
