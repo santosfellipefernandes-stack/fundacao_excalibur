@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARES - Portal de Acesso</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-body">
+    <!-- Background com efeito de partículas -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Container Principal -->
+    <div class="login-container">
+        <!-- Painel Esquerdo - Informações -->
+        <div class="info-panel">
+            <div class="info-content">
+                <h1 class="ares-title">ARES</h1>
+                <p class="ares-subtitle">Agência de Resposta a Entidades Sobrenaturais</p>
+                
+                <div class="info-divider"></div>
+                
+                <p class="info-text">
+                    Você foi selecionado para integrar a equipe de operações especiais. 
+                    Este é um sistema seguro de acesso restrito.
+                </p>
+                
+                <div class="security-info">
+                    <p class="security-text">⚠️ SEGURANÇA MÁXIMA</p>
+                    <p class="security-desc">Sistema protegido com criptografia de nível militar</p>
+                </div>
+
+                <div class="back-button-container">
+                    <a href="index.html" class="back-link">← Voltar ao Portal de Notícias</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Painel Direito - Login -->
+        <div class="login-panel">
+            <div class="login-form-container">
+                <!-- Header do Form -->
+                <div class="form-header">
+                    <div class="terminal-icon">█</div>
+                    <h2>TERMINAL DE ACESSO</h2>
+                    <div class="connection-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">CONECTADO</span>
+                    </div>
+                </div>
+
+                <!-- Erros e Mensagens -->
+                <div class="message-area" id="messageArea"></div>
+
+                <!-- Formulário de Login -->
+                <form class="login-form" id="loginForm">
+                    <!-- Campo de Código de Agente -->
+                    <div class="form-group">
+                        <label for="agentCode" class="form-label">
+                            <span class="label-icon">🆔</span> CÓDIGO DE AGENTE
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="agentCode" 
+                                placeholder="Ex: AGT-0001" 
+                                class="form-input"
+                                required
+                            >
+                            <div class="input-focus-border"></div>
+                        </div>
+                    </div>
+
+                    <!-- Campo de Senha -->
+                    <div class="form-group">
+                        <label for="password" class="form-label">
+                            <span class="label-icon">🔐</span> SENHA DE ACESSO
+                        </label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                placeholder="••••••••••••" 
+                                class="form-input"
+                                required
+                            >
+                            <button type="button" class="toggle-password" onclick="togglePassword()">
+                                <span id="eyeIcon">👁️</span>
+                            </button>
+                            <div class="input-focus-border"></div>
+                        </div>
+                    </div>
+
+                    <!-- Checkbox Lembrar -->
+                    <div class="form-group remember">
+                        <input type="checkbox" id="remember" class="checkbox-input">
+                        <label for="remember" class="checkbox-label">Lembrar dados de acesso</label>
+                    </div>
+
+                    <!-- Botão de Login -->
+                    <button type="submit" class="login-button">
+                        <span class="button-text">AUTORIZAR ACESSO</span>
+                        <span class="button-loader"></span>
+                    </button>
+                </form>
+
+                <!-- Divisor -->
+                <div class="form-divider">
+                    <span class="divider-text">OU</span>
+                </div>
+
+                <!-- Botão de Acesso de Emergência -->
+                <button class="emergency-button" onclick="emergencyLogin()">
+                    🚨 ACESSO DE EMERGÊNCIA
+                </button>
+
+                <!-- Footer do Form -->
+                <div class="form-footer">
+                    <p class="footer-text">Primeira vez aqui?</p>
+                    <button type="button" class="signup-button" onclick="showSignup()">
+                        Solicitar Acesso
+                    </button>
+                </div>
+
+                <!-- Log de Tentativas -->
+                <div class="access-log">
+                    <p class="log-title">LOG DE ACESSO</p>
+                    <div class="log-entries" id="logEntries">
+                        <div class="log-entry">[--:--:--] Aguardando credenciais...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Acesso de Emergência -->
+    <div class="modal" id="emergencyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🚨 PROTOCOLO DE EMERGÊNCIA</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Digite a senha de emergência para acesso imediato ao sistema.</p>
+                <input 
+                    type="password" 
+                    id="emergencyPassword" 
+                    placeholder="Senha de Emergência" 
+                    class="modal-input"
+                >
+                <p class="modal-hint">💡 Dica: Use "0000" para teste</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-cancel" onclick="closeModal()">Cancelar</button>
+                <button class="modal-confirm" onclick="confirmEmergency()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📝 SOLICITAR ACESSO</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Preencha os dados para solicitar acesso ao sistema ARES.</p>
+                <input 
+                    type="text" 
+                    placeholder="Nome Completo" 
+                    class="modal-input"
+                >
+                <input 
+                    type="email" 
+                    placeholder="Email Corporativo" 
+                    class="modal-input"
+                >
+                <input 
+                    type="text" 
+                    placeholder="Código de Referência" 
+                    class="modal-input"
+                >
+            </div>
+            <div class="modal-footer">
+                <button class="modal-cancel" onclick="closeModal()">Cancelar</button>
+                <button class="modal-confirm" onclick="confirmSignup()">Solicitar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
