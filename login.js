@@ -1,25 +1,111 @@
-// Scripts para página de login ARES
+// Scripts para página de login ARES com tela de código
+
+// ========== TELA DE CÓDIGO ==========
+
+// Efeito de código passando (digitação)
+function animateCodeDisplay() {
+    const codeDisplay = document.getElementById('codeDisplay');
+    const chars = '█▓▒░ARES█▓▒░';
+    let index = 0;
+    
+    setInterval(() => {
+        codeDisplay.textContent = '';
+        for (let i = 0; i < 17; i++) {
+            codeDisplay.textContent += chars[Math.floor(Math.random() * chars.length)];
+        }
+    }, 100);
+}
+
+// Submeter código
+function submitCode() {
+    const code = document.getElementById('codeInput').value.toUpperCase();
+    const feedback = document.getElementById('codeFeedback');
+    
+    if (code === 'EXCALIBUR') {
+        feedback.innerHTML = '<p class="success-feedback">✓ Código correto! Acessando...</p>';
+        feedback.style.color = '#00ff00';
+        
+        setTimeout(() => {
+            transitionToLogin();
+        }, 1500);
+    } else if (code === '') {
+        feedback.innerHTML = '<p class="error-feedback">✗ Digite o código</p>';
+        feedback.style.color = '#ff1744';
+    } else {
+        feedback.innerHTML = '<p class="error-feedback">✗ Código incorreto</p>';
+        feedback.style.color = '#ff1744';
+        document.getElementById('codeInput').value = '';
+    }
+}
+
+// Transição para tela de login
+function transitionToLogin() {
+    const codeScreen = document.getElementById('codeScreen');
+    const loginContainer = document.getElementById('loginContainer');
+    
+    codeScreen.style.opacity = '0';
+    codeScreen.style.transition = 'opacity 0.5s ease';
+    
+    setTimeout(() => {
+        codeScreen.style.display = 'none';
+        loginContainer.style.display = 'flex';
+        loginContainer.style.opacity = '0';
+        loginContainer.style.transition = 'opacity 0.5s ease';
+        
+        setTimeout(() => {
+            loginContainer.style.opacity = '1';
+            createParticles();
+            loadSavedCredentials();
+            
+            setTimeout(() => {
+                addLogEntry('Sistema ARES v4.2 inicializado', 'success');
+                addLogEntry('Aguardando autenticação...', 'info');
+            }, 500);
+        }, 50);
+    }, 500);
+}
+
+// Voltar para tela de código
+function backToCode() {
+    const codeScreen = document.getElementById('codeScreen');
+    const loginContainer = document.getElementById('loginContainer');
+    
+    loginContainer.style.opacity = '0';
+    loginContainer.style.transition = 'opacity 0.5s ease';
+    
+    setTimeout(() => {
+        loginContainer.style.display = 'none';
+        codeScreen.style.display = 'flex';
+        codeScreen.style.opacity = '1';
+        document.getElementById('codeInput').value = '';
+        document.getElementById('codeFeedback').innerHTML = '';
+    }, 500);
+}
+
+// ========== TELA DE LOGIN ==========
 
 // Criar partículas de fundo
 function createParticles() {
     const particlesContainer = document.getElementById('particles');
-    const particleCount = 50;
+    if (!particlesContainer.hasChildNodes() || particlesContainer.children.length < 50) {
+        const particleCount = 50;
 
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        const delay = Math.random() * 20;
-        const duration = 15 + Math.random() * 15;
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            const delay = Math.random() * 20;
+            const duration = 15 + Math.random() * 15;
 
-        particle.style.left = x + '%';
-        particle.style.top = y + '%';
-        particle.style.animationDelay = delay + 's';
-        particle.style.animationDuration = duration + 's';
+            particle.style.left = x + '%';
+            particle.style.top = y + '%';
+            particle.style.animationDelay = delay + 's';
+            particle.style.animationDuration = duration + 's';
 
-        particlesContainer.appendChild(particle);
+            particlesContainer.appendChild(particle);
+        }
     }
 }
 
@@ -129,61 +215,66 @@ function confirmSignup() {
 }
 
 // Lidar com envio do formulário de login
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const agentCode = document.getElementById('agentCode').value;
-    const password = document.getElementById('password').value;
-    const loginBtn = document.querySelector('.login-button');
-    
-    // Validar campos
-    if (!agentCode || !password) {
-        showMessage('✗ Preencha todos os campos', 'error');
-        addLogEntry('Tentativa com campos vazios', 'error');
-        return;
-    }
-    
-    // Desabilitar botão e mostrar carregamento
-    loginBtn.disabled = true;
-    loginBtn.classList.add('loading');
-    
-    addLogEntry(`Autenticando agente: ${agentCode}`, 'info');
-    
-    // Simular verificação
-    setTimeout(() => {
-        // Credenciais válidas: qualquer código começando com "AGT-" e senha com 5+ caracteres
-        if (agentCode.startsWith('AGT-') && password.length >= 5) {
-            addLogEntry('Credenciais verificadas com sucesso', 'success');
-            showMessage('✓ Autenticação bem-sucedida! Redirecionando...', 'success');
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // Salvar dados se lembrar foi marcado
-            if (document.getElementById('remember').checked) {
-                localStorage.setItem('ares_agentCode', agentCode);
+            const agentCode = document.getElementById('agentCode').value;
+            const password = document.getElementById('password').value;
+            const loginBtn = document.querySelector('.login-button');
+            
+            // Validar campos
+            if (!agentCode || !password) {
+                showMessage('✗ Preencha todos os campos', 'error');
+                addLogEntry('Tentativa com campos vazios', 'error');
+                return;
             }
             
-            // Redirecionar após 2 segundos
+            // Desabilitar botão e mostrar carregamento
+            loginBtn.disabled = true;
+            loginBtn.classList.add('loading');
+            
+            addLogEntry(`Autenticando agente: ${agentCode}`, 'info');
+            
+            // Simular verificação
             setTimeout(() => {
-                window.location.href = 'sistema-secreto.html';
+                // Credenciais válidas: qualquer código começando com "AGT-" e senha com 5+ caracteres
+                if (agentCode.startsWith('AGT-') && password.length >= 5) {
+                    addLogEntry('Credenciais verificadas com sucesso', 'success');
+                    showMessage('✓ Autenticação bem-sucedida! Redirecionando...', 'success');
+                    
+                    // Salvar dados se lembrar foi marcado
+                    if (document.getElementById('remember').checked) {
+                        localStorage.setItem('ares_agentCode', agentCode);
+                    }
+                    
+                    // Redirecionar após 2 segundos
+                    setTimeout(() => {
+                        window.location.href = 'sistema-secreto.html';
+                    }, 2000);
+                } else {
+                    addLogEntry('Falha na verificação de credenciais', 'error');
+                    showMessage('✗ Código ou senha incorretos', 'error');
+                    
+                    loginBtn.disabled = false;
+                    loginBtn.classList.remove('loading');
+                    
+                    // Limpar campos
+                    document.getElementById('password').value = '';
+                    document.getElementById('agentCode').focus();
+                }
             }, 2000);
-        } else {
-            addLogEntry('Falha na verificação de credenciais', 'error');
-            showMessage('✗ Código ou senha incorretos', 'error');
-            
-            loginBtn.disabled = false;
-            loginBtn.classList.remove('loading');
-            
-            // Limpar campos
-            document.getElementById('password').value = '';
-            document.getElementById('agentCode').focus();
-        }
-    }, 2000);
+        });
+    }
 });
 
 // Carregar dados salvos
 function loadSavedCredentials() {
     const savedCode = localStorage.getItem('ares_agentCode');
     
-    if (savedCode) {
+    if (savedCode && document.getElementById('agentCode')) {
         document.getElementById('agentCode').value = savedCode;
         document.getElementById('remember').checked = true;
         document.getElementById('password').focus();
@@ -210,30 +301,27 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Inicializar
+// Inicializar tela de código
 document.addEventListener('DOMContentLoaded', function() {
-    createParticles();
-    loadSavedCredentials();
+    animateCodeDisplay();
     
-    // Digitação do log inicial
-    setTimeout(() => {
-        addLogEntry('Sistema ARES v4.2 inicializado', 'success');
-        addLogEntry('Aguardando autenticação...', 'info');
-    }, 500);
+    // Enter para submeter código
+    const codeInput = document.getElementById('codeInput');
+    if (codeInput) {
+        codeInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitCode();
+            }
+        });
+    }
     
-    console.log('Portal de Login ARES carregado');
-});
-
-// Tecla Enter para submeter formulário
-document.getElementById('password').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        document.getElementById('loginForm').dispatchEvent(new Event('submit'));
-    }
-});
-
-// Tecla Escape para fechar modal
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeModal();
-    }
+    // Tecla Escape para fechar modal
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+    
+    console.log('Sistema de Login ARES v2.0 carregado');
+    console.log('Código correto: EXCALIBUR');
 });
