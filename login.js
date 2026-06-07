@@ -5,6 +5,33 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const loginMessage = document.getElementById("loginMessage");
 
+const agents = {
+  "EXC-7812": {
+    password: "maxminerva812",
+    name: "Alex Volkov",
+    level: "AGENTE"
+  },
+
+  "EXC-091": {
+    password: "greenknight",
+    name: "Maurice",
+    level: "AGENTE"
+  },
+
+  "EXC-2147": {
+    password: "98.Bodeaux",
+    name: "Joana Vianney",
+    level: "AGENTE"
+  },
+
+  "EXC-1013": {
+    password: "Wolff",
+    name: "Clive Müller",
+    level: "AGENTE"
+  }
+};
+
+  
 const bootLines = [
   "ORÁCULO BIOS v3.7.1 ..................... OK [01/17]",
   "Carregando núcleo ORÁCULO ............... OK [02/17]",
@@ -112,28 +139,33 @@ const bootLines = [
     const password =
       document.getElementById("password").value.trim();
 
-    if (agentCode === "AGT-0001" && password === "avalon") {
+    const agent = agents[agentCode];
 
-      loginMessage.className = "login-message success";
+if (agent && agent.password === password) {
 
-      loginMessage.textContent =
-        "CREDENCIAIS VERIFICADAS // NÍVEL DE ACESSO: AGENTE";
+  localStorage.setItem("currentAgent", JSON.stringify(agent));
+  localStorage.setItem("currentAgentCode", agentCode);
 
-      setTimeout(function () {
-        loginMessage.textContent =
-          "CANAL SEGURO ESTABELECIDO // LIBERANDO ORÁCULO...";
-      }, 900);
+  loginMessage.className = "login-message success";
 
-      setTimeout(function () {
-        window.location.href = "oraculo.html";
-      }, 2200);
+  loginMessage.textContent =
+    `CREDENCIAIS VERIFICADAS // ${agent.name} // NÍVEL: ${agent.level}`;
 
-    } else {
+  setTimeout(function () {
+    loginMessage.textContent =
+      "CANAL SEGURO ESTABELECIDO // LIBERANDO ORÁCULO...";
+  }, 900);
 
-      loginMessage.className = "login-message error";
+  setTimeout(function () {
+    window.location.href = "oraculo.html";
+  }, 2200);
 
-      loginMessage.textContent =
-        "ACESSO NEGADO // CREDENCIAIS INVÁLIDAS.";
-    }
+} else {
+
+  loginMessage.className = "login-message error";
+
+  loginMessage.textContent =
+    "ACESSO NEGADO // CREDENCIAIS INVÁLIDAS.";
+}
   });
 });
