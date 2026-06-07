@@ -268,3 +268,20 @@ button:hover {
   color: #ff6b6b;
   text-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
 }
+.glitch-alert {
+  animation: glitchFlash 0.22s ease;
+}
+
+@keyframes glitchFlash {
+  0% {
+    background-color: rgba(255, 0, 0, 0.18);
+  }
+
+  50% {
+    background-color: rgba(255, 0, 0, 0.32);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
