@@ -154,11 +154,11 @@ if (agent && agent.password === password) {
   setTimeout(function () {
     loginMessage.textContent =
       "CANAL SEGURO ESTABELECIDO // LIBERANDO ORÁCULO...";
-  }, 900);
+  }, 2500);
 
   setTimeout(function () {
     window.location.href = "oraculo.html";
-  }, 2200);
+  }, 4500);
 
 } else {
 
