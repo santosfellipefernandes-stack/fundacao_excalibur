@@ -42,7 +42,7 @@ const bootLines = [
 
        setTimeout(function () {
         document.body.classList.remove("glitch-alert");
-        }, 220);
+        }, 280);
       }
 
       if (bootLines[index].includes("NEGADO")) {
