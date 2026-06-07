@@ -5,23 +5,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const loginMessage = document.getElementById("loginMessage");
 
-  const bootLines = [
-    "ORÁCULO BIOS v3.7.1 ..................... OK [01/16]",
-    "Carregando núcleo ORÁCULO ............... OK [02/16]",
-    "Verificando integridade do sistema ...... OK [03/16]",
-    "Validando selos criptográficos .......... OK [04/16]",
-    "Montando Arquivo Central ................ OK [05/16]",
-    "Sincronizando Biblioteca Avalon ......... OK [06/16]",
-    "Consultando Índice Merlin ............... OK [07/16]",
-    "Verificando protocolos Excalibur ........ OK [08/16]",
-    "Carregando registros da Távola .......... OK [09/16]",
-    "Consultando Arquivo Mordred ............. NEGADO [10/16]",
-    "Prosseguindo com privilégios atuais ..... OK [11/16]",
-    "Nó secundário indisponível .............. FALHA [12/16]",
-    "Ativando redundância .................... OK [13/16]",
-    "Conectando ao espelho de dados .......... OK [14/16]",
-    "Estabelecendo canal seguro .............. OK [15/16]",
-    "Interface de autenticação liberada ...... OK [16/16]"
+const bootLines = [
+  "ORÁCULO BIOS v3.7.1 ..................... OK [01/17]",
+  "Carregando núcleo ORÁCULO ............... OK [02/17]",
+  "Verificando integridade do sistema ...... OK [03/17]",
+  "Validando selos criptográficos .......... OK [04/17]",
+  "Montando Arquivo Central ................ OK [05/17]",
+  "Sincronizando Biblioteca Avalon ......... OK [06/17]",
+  "Consultando Índice Merlin ............... OK [07/17]",
+  "Verificando protocolos Excalibur ........ OK [08/17]",
+  "Carregando registros da Távola .......... OK [09/17]",
+  "Consultando Arquivo Mordred ............. NEGADO [10/17]",
+  "Prosseguindo com privilégios atuais ..... OK [11/17]",
+  "Nó secundário indisponível .............. FALHA [12/17]",
+  "Ativando redundância .................... OK [13/17]",
+  "Conectando ao espelho de dados .......... OK [14/17]",
+  "Estabelecendo canal seguro .............. OK [15/17]",
+  "Canal Excalibur estabelecido ............ OK [16/17]",
+  "Interface de autenticação liberada ...... OK [17/17]"
   ];
 
   let index = 0;
@@ -35,8 +36,13 @@ document.addEventListener("DOMContentLoaded", function () {
         line.classList.add("status-ok");
       }
 
-      if (bootLines[index].includes("FALHA")) {
-        line.classList.add("status-fail");
+     if (bootLines[index].includes("FALHA")) {
+       line.classList.add("status-fail");
+       document.body.classList.add("glitch-alert");
+
+       setTimeout(function () {
+        document.body.classList.remove("glitch-alert");
+        }, 220);
       }
 
       if (bootLines[index].includes("NEGADO")) {
