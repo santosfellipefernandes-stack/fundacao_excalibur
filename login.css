@@ -179,3 +179,21 @@ button:hover {
     font-size: 15px;
   }
 }
+.status-ok {
+  color: #d9a441;
+}
+
+.status-fail {
+  color: #ff5f56;
+  text-shadow: 0 0 8px rgba(255, 95, 86, 0.55);
+}
+
+.status-denied {
+  color: #c0392b;
+  text-shadow: 0 0 8px rgba(192, 57, 43, 0.55);
+}
+
+.status-warning {
+  color: #f0c46a;
+  text-shadow: 0 0 8px rgba(240, 196, 106, 0.55);
+}
