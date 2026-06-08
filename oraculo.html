@@ -9,104 +9,157 @@
 
 <body class="oraculo-body">
 
-  <div class="oraculo-layout">
+  <div class="oraculo-shell">
 
-    <header class="oraculo-header">
+    <header class="top-bar">
       <div>
         <p class="system-label">FUNDAÇÃO EXCALIBUR</p>
         <h1>ORÁCULO</h1>
-        <p class="subtitle">Central de inteligência, monitoramento e resposta operacional.</p>
       </div>
 
-      <div class="agent-panel">
+      <div class="operator-status">
         <span id="agentName">Agente não identificado</span>
         <span id="agentCode">CÓDIGO: --</span>
         <span id="agentLevel">NÍVEL: --</span>
+        <span>STATUS: ONLINE</span>
       </div>
     </header>
 
-    <main class="dashboard-grid">
+    <div class="main-grid">
 
-      <section class="status-card alert">
-        <h2>Alertas Ativos</h2>
-        <strong>03</strong>
-        <p>Eventos exigem acompanhamento imediato.</p>
-      </section>
+      <aside class="side-menu">
+        <button class="menu-button active">VISÃO GERAL</button>
+        <button class="menu-button">MISSÕES</button>
+        <button class="menu-button">INCIDENTES</button>
+        <button class="menu-button">DOSSIÊS</button>
+        <button class="menu-button">ARTEFATOS</button>
+        <button class="menu-button">AGENTES</button>
+        <button class="menu-button">ARQUIVO HISTÓRICO</button>
+        <button class="menu-button locked">RESTRITO</button>
+      </aside>
 
-      <section class="status-card">
-        <h2>Incidentes Mapeados</h2>
-        <strong>09</strong>
-        <p>Ocorrências catalogadas em monitoramento.</p>
-      </section>
+      <main class="command-center">
 
-      <section class="status-card">
-        <h2>Agentes em Campo</h2>
-        <strong>04</strong>
-        <p>Equipes operando em zonas sensíveis.</p>
-      </section>
+        <section class="operation-header">
+          <div>
+            <p class="section-kicker">OPERAÇÃO ATIVA</p>
+            <h2>PROJETO CHROMA</h2>
+            <p>San Francisco, Califórnia // Investigação em andamento</p>
+          </div>
 
-      <section class="status-card threat">
-        <h2>Ameaça Global</h2>
-        <strong>MODERADA</strong>
-        <p>Atividade anômala acima do padrão local.</p>
-      </section>
+          <div class="threat-box">
+            <span>PRIORIDADE</span>
+            <strong>ALTA</strong>
+          </div>
+        </section>
 
-    </main>
+        <section class="data-grid">
+          <div class="data-tile">
+            <span>Alertas ativos</span>
+            <strong>03</strong>
+          </div>
 
-    <section class="menu-grid">
-      <a href="#" class="menu-card">MISSÕES</a>
-      <a href="#" class="menu-card">DOSSIÊS</a>
-      <a href="#" class="menu-card">ARTEFATOS</a>
-      <a href="#" class="menu-card">AGENTES</a>
-      <a href="#" class="menu-card">RELATÓRIOS</a>
-      <a href="#" class="menu-card locked">ARQUIVOS RESTRITOS</a>
-    </section>
+          <div class="data-tile">
+            <span>Incidentes mapeados</span>
+            <strong>09</strong>
+          </div>
 
-    <section class="intel-grid">
+          <div class="data-tile">
+            <span>Amostras em análise</span>
+            <strong>04</strong>
+          </div>
 
-      <div class="panel">
-        <h2>Incidentes Recentes</h2>
-        <p><span>SAN FRANCISCO</span> Alterações emocionais associadas a material pigmentado.</p>
-        <p><span>PROJETO CHROMA</span> Investigação ativa em andamento.</p>
-        <p><span>NOVA YORK</span> Relatórios secundários aguardando validação.</p>
-      </div>
+          <div class="data-tile">
+            <span>Status operacional</span>
+            <strong>ABERTO</strong>
+          </div>
+        </section>
 
-      <div class="panel">
-        <h2>Agentes em Campo</h2>
-        <p><span>Isabella</span> Consultoria artística ativa.</p>
-        <p><span>Equipe Externa</span> Deslocamento autorizado para San Francisco.</p>
-        <p><span>Suporte Remoto</span> Canal operacional aberto.</p>
-      </div>
+        <section class="database-panel">
+          <div class="panel-header">
+            <h2>Resumo Operacional</h2>
+            <span>ARQUIVO: CHR-07</span>
+          </div>
 
-      <div class="panel">
-        <h2>Atividade Recente</h2>
-        <p>09:42 // Relatório recebido: Projeto Chroma</p>
-        <p>09:17 // Amostras pigmentadas sob análise</p>
-        <p>08:51 // Ocorrência classificada: San Francisco</p>
-        <p>08:23 // Operação Maré Alta movida para arquivo histórico</p>
-      </div>
-
-    </section>
-
-    <section class="operation-panel">
-      <h2>Operação em Destaque</h2>
-
-      <div class="operation-content">
-        <div>
-          <h3>PROJETO CHROMA</h3>
-          <p><strong>Local:</strong> San Francisco, Califórnia</p>
-          <p><strong>Status:</strong> Investigação ativa</p>
-          <p><strong>Prioridade:</strong> Alta</p>
-        </div>
-
-        <div>
           <p>
-            Múltiplos registros indicam anomalias emocionais associadas a pigmentos experimentais.
-            A origem do material ainda está sob análise.
+            Registros recentes indicam alteração emocional em indivíduos expostos a
+            material pigmentado de origem ainda não confirmada. A investigação segue
+            ativa em San Francisco.
           </p>
-        </div>
-      </div>
-    </section>
+
+          <div class="file-list">
+            <div class="file-row">
+              <span>CHR-001</span>
+              <strong>Relatório inicial de ocorrência</strong>
+              <em>DISPONÍVEL</em>
+            </div>
+
+            <div class="file-row">
+              <span>CHR-002</span>
+              <strong>Análise preliminar de pigmento</strong>
+              <em>DISPONÍVEL</em>
+            </div>
+
+            <div class="file-row locked-row">
+              <span>CHR-003</span>
+              <strong>Origem do material</strong>
+              <em>RESTRITO</em>
+            </div>
+          </div>
+        </section>
+
+        <section class="database-panel">
+          <div class="panel-header">
+            <h2>Incidentes Mapeados</h2>
+            <span>MONITORAMENTO</span>
+          </div>
+
+          <div class="incident-list">
+            <div class="incident-item">
+              <strong>SAN FRANCISCO</strong>
+              <p>Colapsos emocionais associados a obras e pigmentos experimentais.</p>
+            </div>
+
+            <div class="incident-item">
+              <strong>NOVA YORK</strong>
+              <p>Relatórios secundários aguardando validação por analistas.</p>
+            </div>
+
+            <div class="incident-item archived">
+              <strong>MARÉ ALTA</strong>
+              <p>Operação concluída. Movida para arquivo histórico.</p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="right-panel">
+
+        <section class="mini-panel warning">
+          <h3>Alertas</h3>
+          <p>Material pigmentado apresenta resposta anômala sob observação prolongada.</p>
+          <p>Relatórios civis indicam reações emocionais severas.</p>
+        </section>
+
+        <section class="mini-panel">
+          <h3>Agentes em Campo</h3>
+          <p><span>Isabella</span> Consultoria artística ativa.</p>
+          <p><span>Equipe Externa</span> Deslocamento autorizado.</p>
+          <p><span>Suporte Remoto</span> Canal aberto.</p>
+        </section>
+
+        <section class="mini-panel">
+          <h3>Atividade Recente</h3>
+          <p>09:42 // Relatório recebido.</p>
+          <p>09:17 // Amostras sob análise.</p>
+          <p>08:51 // San Francisco classificado.</p>
+          <p>08:23 // Maré Alta arquivada.</p>
+        </section>
+
+      </aside>
+
+    </div>
 
   </div>
 
