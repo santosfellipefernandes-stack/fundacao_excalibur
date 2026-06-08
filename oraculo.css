@@ -1,1 +1,261 @@
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(217, 164, 65, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(62, 120, 140, 0.16), transparent 32%),
+    linear-gradient(135deg, #030607, #071113 55%, #020303);
+  color: #d9a441;
+  font-family: "Courier New", monospace;
+}
+
+.oraculo-layout {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.oraculo-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  border: 1px solid rgba(217, 164, 65, 0.55);
+  background: rgba(3, 8, 9, 0.88);
+  padding: 28px;
+  box-shadow:
+    0 0 35px rgba(217, 164, 65, 0.08),
+    inset 0 0 45px rgba(217, 164, 65, 0.03);
+}
+
+.system-label {
+  margin: 0 0 10px;
+  letter-spacing: 4px;
+  font-size: 13px;
+  color: #c89335;
+}
+
+h1 {
+  margin: 0;
+  font-size: 52px;
+  letter-spacing: 8px;
+  color: #f0c46a;
+  text-shadow: 0 0 12px rgba(217, 164, 65, 0.55);
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  color: rgba(217, 164, 65, 0.72);
+  line-height: 1.5;
+}
+
+.agent-panel {
+  min-width: 260px;
+  border: 1px solid rgba(217, 164, 65, 0.42);
+  padding: 16px;
+  background: rgba(217, 164, 65, 0.05);
+}
+
+.agent-panel span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.status-card,
+.panel,
+.operation-panel,
+.menu-card {
+  border: 1px solid rgba(217, 164, 65, 0.42);
+  background: rgba(3, 8, 9, 0.82);
+  box-shadow:
+    0 0 24px rgba(217, 164, 65, 0.06),
+    inset 0 0 35px rgba(217, 164, 65, 0.025);
+}
+
+.status-card {
+  padding: 20px;
+}
+
+.status-card h2,
+.panel h2,
+.operation-panel h2 {
+  margin: 0 0 14px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #f0c46a;
+  text-transform: uppercase;
+}
+
+.status-card strong {
+  display: block;
+  font-size: 36px;
+  margin-bottom: 8px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(217, 164, 65, 0.35);
+}
+
+.status-card p {
+  margin: 0;
+  color: rgba(217, 164, 65, 0.7);
+  line-height: 1.4;
+}
+
+.status-card.alert {
+  border-color: rgba(255, 95, 86, 0.7);
+}
+
+.status-card.alert strong {
+  color: #ff5f56;
+}
+
+.status-card.threat {
+  border-color: rgba(240, 196, 106, 0.7);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.menu-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 78px;
+  text-decoration: none;
+  color: #f0c46a;
+  letter-spacing: 2px;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.menu-card:hover {
+  background: rgba(217, 164, 65, 0.12);
+  border-color: rgba(240, 196, 106, 0.9);
+  transform: translateY(-2px);
+}
+
+.menu-card.locked {
+  color: rgba(255, 95, 86, 0.9);
+  border-color: rgba(255, 95, 86, 0.45);
+}
+
+.intel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.panel {
+  padding: 22px;
+  min-height: 220px;
+}
+
+.panel p {
+  color: rgba(217, 164, 65, 0.72);
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(217, 164, 65, 0.13);
+  padding-bottom: 10px;
+}
+
+.panel span {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.operation-panel {
+  margin-top: 24px;
+  padding: 24px;
+}
+
+.operation-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 28px;
+}
+
+.operation-content h3 {
+  margin: 0 0 14px;
+  font-size: 24px;
+  letter-spacing: 3px;
+  color: #ffffff;
+}
+
+.operation-content p {
+  color: rgba(217, 164, 65, 0.75);
+  line-height: 1.6;
+}
+
+.oraculo-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.022),
+    rgba(255, 255, 255, 0.022) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  z-index: 10;
+}
+
+.oraculo-body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 58%, rgba(0, 0, 0, 0.5) 100%);
+  z-index: 11;
+}
+
+@media (max-width: 1000px) {
+  .dashboard-grid,
+  .intel-grid,
+  .operation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .oraculo-header {
+    flex-direction: column;
+  }
+
+  .agent-panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .oraculo-layout {
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
