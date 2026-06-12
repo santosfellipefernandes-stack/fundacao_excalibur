@@ -41,12 +41,27 @@ document.addEventListener("DOMContentLoaded", function () {
     "Maurice M. Mahmoudi"
   ],
 
+    files: [
+    {
+      id: "REL-001",
+      title: "Relatório preliminar da operação",
+      type: "RELATÓRIO",
+      status: "DISPONÍVEL"
+    },
+    {
+      id: "IMG-001",
+      title: "Registro visual de amostra pigmentada",
+      type: "IMAGEM",
+      status: "PENDENTE"
+    }
+  ],
+
   logs: [
     "09:42 // Relatório preliminar recebido.",
     "09:17 // Amostras pigmentadas encaminhadas para análise.",
     "08:51 // Ocorrência classificada como operação ativa."
   ]
-},,
+},
     {
       code: "EXC-OP-0319",
       codename: "Maré Alta",
@@ -187,7 +202,25 @@ document.addEventListener("DOMContentLoaded", function () {
         agentsContainer.appendChild(item);
       });
     }
+    const filesContainer = document.getElementById("modalMissionFiles");
+filesContainer.innerHTML = "";
 
+if (mission.files && mission.files.length > 0) {
+  mission.files.forEach(function (file) {
+    const fileLine = document.createElement("div");
+    fileLine.className = "file-link-line";
+
+    fileLine.innerHTML = `
+      <span>${file.id}</span>
+      <strong>${file.title}</strong>
+      <em>${file.type} // ${file.status}</em>
+    `;
+
+    filesContainer.appendChild(fileLine);
+  });
+} else {
+  filesContainer.textContent = "Nenhum arquivo vinculado.";
+}
     const logsContainer = document.getElementById("modalMissionLogs");
     logsContainer.innerHTML = "";
 
