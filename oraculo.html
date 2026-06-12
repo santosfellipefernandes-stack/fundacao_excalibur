@@ -12,7 +12,6 @@
   <div class="oraculo-shell">
 
     <header class="top-bar">
-
       <div>
         <p class="system-label">FUNDAÇÃO EXCALIBUR</p>
         <h1>ORÁCULO</h1>
@@ -24,189 +23,100 @@
         <span id="agentLevel">NÍVEL: --</span>
         <span>STATUS: ONLINE</span>
       </div>
-
     </header>
 
     <div class="main-grid">
 
       <aside class="side-menu">
-
-        <button class="menu-button active">
-          VISÃO GERAL
-        </button>
-
-        <button class="menu-button">
-          MISSÕES
-        </button>
-
-        <button class="menu-button">
-          INCIDENTES
-        </button>
-
-        <button class="menu-button">
-          DOSSIÊS
-        </button>
-
-        <button class="menu-button">
-          ARTEFATOS
-        </button>
-
-        <button class="menu-button">
-          AGENTES
-        </button>
-
-        <button class="menu-button">
-          RELATÓRIOS
-        </button>
-
-        <button class="menu-button">
-          ARQUIVO HISTÓRICO
-        </button>
-
-        <button class="menu-button locked">
-          RESTRITO
-        </button>
-
+        <button class="menu-button active" id="overviewBtn">VISÃO GERAL</button>
+        <button class="menu-button" id="missionsBtn">MISSÕES</button>
+        <button class="menu-button">INCIDENTES</button>
+        <button class="menu-button">DOSSIÊS</button>
+        <button class="menu-button">ARTEFATOS</button>
+        <button class="menu-button">AGENTES</button>
+        <button class="menu-button">RELATÓRIOS</button>
+        <button class="menu-button">ARQUIVO HISTÓRICO</button>
+        <button class="menu-button locked">RESTRITO</button>
       </aside>
 
       <main class="command-center">
+        <div id="content-area">
 
-        <section class="operation-header">
+          <section class="operation-header">
+            <div>
+              <p class="section-kicker">VISÃO GERAL DO SISTEMA</p>
+              <h2>PAINEL OPERACIONAL</h2>
+              <p>Resumo global de atividades da Fundação Excalibur.</p>
+            </div>
 
-          <div>
-            <p class="section-kicker">
-              VISÃO GERAL DO SISTEMA
-            </p>
-
-            <h2>PAINEL OPERACIONAL</h2>
-
-            <p>
-              Resumo global de atividades da Fundação Excalibur.
-            </p>
-          </div>
-
-          <div class="threat-box">
-            <span>MEMBRANA</span>
-            <strong>ESTÁVEL</strong>
-          </div>
-
-        </section>
-
-        <section class="data-grid">
-
-          <div class="data-tile">
-            <span>Alertas ativos</span>
-            <strong>03</strong>
-          </div>
-
-          <div class="data-tile">
-            <span>Incidentes mapeados</span>
-            <strong>09</strong>
-          </div>
-
-          <div class="data-tile">
-            <span>Operações ativas</span>
-            <strong>02</strong>
-          </div>
-
-          <div class="data-tile">
-            <span>Agentes em campo</span>
-            <strong>04</strong>
-          </div>
-
-        </section>
-
-        <section class="database-panel">
-
-          <div class="panel-header">
-            <h2>Estado da Rede</h2>
-            <span>MONITORAMENTO GLOBAL</span>
-          </div>
-
-          <div class="system-lines">
-
-            <p>
-              <span>Rede Avalon</span>
-              <strong>ONLINE</strong>
-            </p>
-
-            <p>
-              <span>Arquivo Central</span>
-              <strong>ONLINE</strong>
-            </p>
-
-            <p>
-              <span>Índice Merlin</span>
-              <strong>ONLINE</strong>
-            </p>
-
-            <p>
-              <span>Canal Excalibur</span>
-              <strong>SEGURO</strong>
-            </p>
-
-            <p>
-              <span>Status da Membrana</span>
+            <div class="threat-box">
+              <span>MEMBRANA</span>
               <strong>ESTÁVEL</strong>
-            </p>
+            </div>
+          </section>
 
-            <p>
-              <span>Arquivos Restritos</span>
-              <strong>BLOQUEADOS</strong>
-            </p>
+          <section class="data-grid">
+            <div class="data-tile">
+              <span>Alertas ativos</span>
+              <strong>03</strong>
+            </div>
 
-          </div>
+            <div class="data-tile">
+              <span>Incidentes mapeados</span>
+              <strong>09</strong>
+            </div>
 
-        </section>
+            <div class="data-tile">
+              <span>Operações ativas</span>
+              <strong>02</strong>
+            </div>
 
+            <div class="data-tile">
+              <span>Agentes em campo</span>
+              <strong>04</strong>
+            </div>
+          </section>
+
+          <section class="database-panel">
+            <div class="panel-header">
+              <h2>Estado da Rede</h2>
+              <span>MONITORAMENTO GLOBAL</span>
+            </div>
+
+            <div class="system-lines">
+              <p><span>Rede Avalon</span><strong>ONLINE</strong></p>
+              <p><span>Arquivo Central</span><strong>ONLINE</strong></p>
+              <p><span>Índice Merlin</span><strong>ONLINE</strong></p>
+              <p><span>Canal Excalibur</span><strong>SEGURO</strong></p>
+              <p><span>Status da Membrana</span><strong>ESTÁVEL</strong></p>
+              <p><span>Arquivos Restritos</span><strong>BLOQUEADOS</strong></p>
+            </div>
+          </section>
+
+        </div>
       </main>
 
       <aside class="right-panel">
 
         <section class="mini-panel warning">
-
           <h3>Alertas</h3>
-
-          <p>
-            Aumento de atividade paranormal detectado em múltiplas regiões.
-          </p>
-
-          <p>
-            Dois incidentes aguardam classificação.
-          </p>
-
+          <p>Aumento de atividade paranormal detectado em múltiplas regiões.</p>
+          <p>Dois incidentes aguardam classificação.</p>
         </section>
 
         <section class="mini-panel">
-
           <h3>Equipes Despachadas</h3>
-
-          <p>
-            <span>Equipe Alpha</span>
-            Operação em andamento.
-          </p>
-
-          <p>
-            <span>Equipe Delta</span>
-            Investigação ativa.
-          </p>
-
-          <p>
-            <span>Suporte Remoto</span>
-            Disponível.
-          </p>
-
+          <p><span>Equipe Alpha</span> Operação em andamento.</p>
+          <p><span>Equipe Delta</span> Investigação ativa.</p>
+          <p><span>Suporte Remoto</span> Disponível.</p>
         </section>
 
         <section class="mini-panel">
-
           <h3>Atividade Recente</h3>
-
           <p>09:42 // Relatório recebido.</p>
           <p>09:17 // Arquivo atualizado.</p>
           <p>08:51 // Novo incidente registrado.</p>
           <p>08:23 // Operação encerrada.</p>
-
         </section>
 
       </aside>
