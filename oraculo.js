@@ -11,10 +11,58 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("agentCode").textContent = "CÓDIGO: " + agentCode;
   document.getElementById("agentLevel").textContent = "NÍVEL: " + agentData.level;
 
+  const missions = [
+    {
+      code: "EXC-OP-0741",
+      codename: "Projeto Chroma",
+      status: "EM ANDAMENTO",
+      access: "PARCIAL",
+      clickable: true,
+      location: "San Francisco, Califórnia",
+      summary: "Investigação ativa sobre alterações emocionais associadas a material pigmentado de origem ainda não confirmada.",
+      logs: [
+        "09:42 // Relatório preliminar recebido.",
+        "09:17 // Amostras pigmentadas encaminhadas para análise.",
+        "08:51 // Ocorrência classificada como operação ativa."
+      ]
+    },
+    {
+      code: "EXC-OP-0319",
+      codename: "Maré Alta",
+      status: "ARQUIVADA",
+      access: "LIBERADO",
+      clickable: true,
+      location: "Costa Leste dos Estados Unidos",
+      summary: "Operação concluída. Dados movidos para arquivo histórico.",
+      logs: [
+        "Operação encerrada.",
+        "Relatório final arquivado.",
+        "Acesso liberado para agentes autorizados."
+      ]
+    },
+    {
+      code: "EXC-OP-0842",
+      codename: "██████████",
+      status: "CLASSIFICADO",
+      access: "NEGADO",
+      clickable: false
+    },
+    {
+      code: "EXC-OP-1027",
+      codename: "██████████",
+      status: "CLASSIFICADO",
+      access: "NEGADO",
+      clickable: false
+    }
+  ];
+
   const contentArea = document.getElementById("content-area");
   const overviewBtn = document.getElementById("overviewBtn");
   const missionsBtn = document.getElementById("missionsBtn");
   const menuButtons = document.querySelectorAll(".menu-button");
+
+  const missionModal = document.getElementById("missionModal");
+  const closeMissionModal = document.getElementById("closeMissionModal");
 
   const overviewContent = contentArea.innerHTML;
 
@@ -26,17 +74,22 @@ document.addEventListener("DOMContentLoaded", function () {
     activeButton.classList.add("active");
   }
 
-  overviewBtn.addEventListener("click", function () {
-    contentArea.innerHTML = overviewContent;
-    setActiveButton(overviewBtn);
-  });
+  function renderMissionsTable() {
+    const rows = missions.map(function (mission) {
+      const rowClass = mission.clickable ? "clickable-row" : "locked-row";
 
-  missionsBtn.addEventListener("click", function () {
-    setActiveButton(missionsBtn);
+      return `
+        <tr class="${rowClass}" data-code="${mission.code}">
+          <td>${mission.code}</td>
+          <td>${mission.codename}</td>
+          <td>${mission.status}</td>
+          <td>${mission.access}</td>
+        </tr>
+      `;
+    }).join("");
 
     contentArea.innerHTML = `
       <section class="database-panel">
-
         <div class="panel-header">
           <h2>MISSÕES OPERACIONAIS</h2>
           <span>EXCALIBUR DATABASE</span>
@@ -53,37 +106,68 @@ document.addEventListener("DOMContentLoaded", function () {
           </thead>
 
           <tbody>
-            <tr class="clickable-row" data-mission="chroma">
-              <td>EXC-OP-0741</td>
-              <td>Projeto Chroma</td>
-              <td>EM ANDAMENTO</td>
-              <td>PARCIAL</td>
-            </tr>
-
-            <tr>
-              <td>EXC-OP-0319</td>
-              <td>Maré Alta</td>
-              <td>ARQUIVADA</td>
-              <td>LIBERADO</td>
-            </tr>
-
-            <tr class="locked-row">
-              <td>EXC-OP-0842</td>
-              <td>██████████</td>
-              <td>CLASSIFICADO</td>
-              <td>NEGADO</td>
-            </tr>
-
-            <tr class="locked-row">
-              <td>EXC-OP-1027</td>
-              <td>██████████</td>
-              <td>CLASSIFICADO</td>
-              <td>NEGADO</td>
-            </tr>
+            ${rows}
           </tbody>
         </table>
-
       </section>
     `;
+
+    document.querySelectorAll(".clickable-row").forEach(function (row) {
+      row.addEventListener("click", function () {
+        const code = row.getAttribute("data-code");
+        const mission = missions.find(function (item) {
+          return item.code === code;
+        });
+
+        openMissionModal(mission);
+      });
+    });
+  }
+
+  function openMissionModal(mission) {
+    document.getElementById("modalMissionCode").textContent = mission.code;
+    document.getElementById("modalMissionName").textContent = mission.codename;
+    document.getElementById("modalMissionStatus").textContent = mission.status;
+    document.getElementById("modalMissionAccess").textContent = mission.access;
+    document.getElementById("modalMissionLocation").textContent = mission.location || "NÃO DISPONÍVEL";
+    document.getElementById("modalMissionSummary").textContent = mission.summary || "ARQUIVO RESTRITO.";
+
+    const logsContainer = document.getElementById("modalMissionLogs");
+    logsContainer.innerHTML = "";
+
+    if (mission.logs && mission.logs.length > 0) {
+      mission.logs.forEach(function (log) {
+        const logLine = document.createElement("div");
+        logLine.className = "log-line";
+        logLine.textContent = log;
+        logsContainer.appendChild(logLine);
+      });
+    } else {
+      logsContainer.textContent = "Nenhum log disponível.";
+    }
+
+    missionModal.classList.add("active");
+  }
+
+  function closeModal() {
+    missionModal.classList.remove("active");
+  }
+
+  overviewBtn.addEventListener("click", function () {
+    contentArea.innerHTML = overviewContent;
+    setActiveButton(overviewBtn);
+  });
+
+  missionsBtn.addEventListener("click", function () {
+    setActiveButton(missionsBtn);
+    renderMissionsTable();
+  });
+
+  closeMissionModal.addEventListener("click", closeModal);
+
+  missionModal.addEventListener("click", function (event) {
+    if (event.target === missionModal) {
+      closeModal();
+    }
   });
 });
