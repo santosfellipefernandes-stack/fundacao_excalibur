@@ -151,6 +151,41 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("modalMissionAccess").textContent = mission.access;
     document.getElementById("modalMissionLocation").textContent = mission.location || "NÃO DISPONÍVEL";
     document.getElementById("modalMissionSummary").textContent = mission.summary || "ARQUIVO RESTRITO.";
+    const objectivesContainer = document.getElementById("modalMissionObjectives");
+    objectivesContainer.innerHTML = "";
+    
+    if (mission.objectives) {
+      mission.objectives.forEach(function (objective) {
+        const item = document.createElement("div");
+        item.className = "log-line";
+        item.textContent = objective;
+        objectivesContainer.appendChild(item);
+      });
+    }
+    
+    const teamContainer = document.getElementById("modalMissionTeam");
+    teamContainer.innerHTML = "";
+    
+    if (mission.team) {
+      mission.team.forEach(function (team) {
+        const item = document.createElement("div");
+        item.className = "log-line";
+        item.textContent = team;
+        teamContainer.appendChild(item);
+      });
+    }
+    
+    const agentsContainer = document.getElementById("modalMissionAgents");
+    agentsContainer.innerHTML = "";
+    
+    if (mission.agents) {
+      mission.agents.forEach(function (agent) {
+        const item = document.createElement("div");
+        item.className = "log-line";
+        item.textContent = agent;
+        agentsContainer.appendChild(item);
+      });
+    }
 
     const logsContainer = document.getElementById("modalMissionLogs");
     logsContainer.innerHTML = "";
