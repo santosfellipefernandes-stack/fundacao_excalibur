@@ -67,15 +67,15 @@ document.addEventListener("DOMContentLoaded", function () {
               <td>LIBERADO</td>
             </tr>
 
-            <tr>
-              <td>EXC-OP-1186</td>
-              <td>Vernissage</td>
-              <td>PLANEJAMENTO</td>
-              <td>PARCIAL</td>
+            <tr class="locked-row">
+              <td>EXC-OP-0842</td>
+              <td>██████████</td>
+              <td>CLASSIFICADO</td>
+              <td>NEGADO</td>
             </tr>
 
             <tr class="locked-row">
-              <td>EXC-OP-0007</td>
+              <td>EXC-OP-1027</td>
               <td>██████████</td>
               <td>CLASSIFICADO</td>
               <td>NEGADO</td>
