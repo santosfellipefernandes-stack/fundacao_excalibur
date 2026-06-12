@@ -13,19 +13,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const missions = [
     {
-      code: "EXC-OP-0741",
-      codename: "Projeto Chroma",
-      status: "EM ANDAMENTO",
-      access: "PARCIAL",
-      clickable: true,
-      location: "San Francisco, Califórnia",
-      summary: "Investigação ativa sobre alterações emocionais associadas a material pigmentado de origem ainda não confirmada.",
-      logs: [
-        "09:42 // Relatório preliminar recebido.",
-        "09:17 // Amostras pigmentadas encaminhadas para análise.",
-        "08:51 // Ocorrência classificada como operação ativa."
-      ]
-    },
+  code: "EXC-OP-0741",
+  codename: "Projeto Chroma",
+  status: "EM ANDAMENTO",
+  access: "PARCIAL",
+  clickable: true,
+  location: "San Francisco, Califórnia",
+
+  summary: "Investigação ativa sobre alterações emocionais associadas a material pigmentado de origem ainda não confirmada.",
+
+  objectives: [
+    "Identificar a origem do pigmento.",
+    "Mapear indivíduos afetados.",
+    "Determinar riscos de exposição prolongada.",
+    "Localizar possíveis responsáveis pela distribuição do material."
+  ],
+
+  team: [
+    "Equipe Taj Mahal"
+  ],
+
+  agents: [
+    "Alex Volkov",
+    "Clive Müller",
+    "Ash",
+    "Maurice"
+  ],
+
+  logs: [
+    "09:42 // Relatório preliminar recebido.",
+    "09:17 // Amostras pigmentadas encaminhadas para análise.",
+    "08:51 // Ocorrência classificada como operação ativa."
+  ]
+},,
     {
       code: "EXC-OP-0319",
       codename: "Maré Alta",
