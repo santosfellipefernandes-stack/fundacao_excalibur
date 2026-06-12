@@ -35,9 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   agents: [
     "Alex Volkov",
-    "Clive Müller",
     "Ash",
-    "Maurice"
+    "Clive Müller",
+    "Joana Vianey",
+    "Maurice M. Mahmoudi"
   ],
 
   logs: [
