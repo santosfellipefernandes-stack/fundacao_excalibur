@@ -381,3 +381,37 @@ h1 {
     text-align: left;
   }
 }
+.mission-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.mission-table th,
+.mission-table td {
+  text-align: left;
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(217, 164, 65, 0.16);
+}
+
+.mission-table th {
+  color: #f0c46a;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.mission-table td {
+  color: rgba(217, 164, 65, 0.78);
+}
+
+.mission-table tr:hover {
+  background: rgba(217, 164, 65, 0.08);
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.locked-row td {
+  color: rgba(255, 95, 86, 0.85);
+}
