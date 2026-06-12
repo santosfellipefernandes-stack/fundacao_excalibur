@@ -124,7 +124,34 @@
     </div>
 
   </div>
-
+    <div class="modal-overlay" id="missionModal">
+      <div class="mission-modal">
+    
+        <div class="modal-header">
+          <div>
+            <p class="section-kicker" id="modalMissionCode">EXC-OP-0000</p>
+            <h2 id="modalMissionName">MISSÃO</h2>
+          </div>
+    
+          <button class="modal-close" id="closeMissionModal">FECHAR</button>
+        </div>
+    
+        <div class="modal-content">
+          <p><strong>Status:</strong> <span id="modalMissionStatus"></span></p>
+          <p><strong>Acesso:</strong> <span id="modalMissionAccess"></span></p>
+          <p><strong>Local:</strong> <span id="modalMissionLocation"></span></p>
+    
+          <hr>
+    
+          <h3>Resumo</h3>
+          <p id="modalMissionSummary"></p>
+    
+          <h3>Logs de Atualização</h3>
+          <div id="modalMissionLogs"></div>
+        </div>
+    
+      </div>
+    </div>
   <script src="oraculo.js"></script>
 
 </body>
