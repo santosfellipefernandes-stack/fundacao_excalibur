@@ -415,3 +415,77 @@ h1 {
 .locked-row td {
   color: rgba(255, 95, 86, 0.85);
 }
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 24px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.mission-modal {
+  width: min(900px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  border: 1px solid rgba(217, 164, 65, 0.65);
+  background: rgba(3, 8, 9, 0.96);
+  box-shadow:
+    0 0 45px rgba(217, 164, 65, 0.16),
+    inset 0 0 45px rgba(217, 164, 65, 0.04);
+  padding: 26px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(217, 164, 65, 0.22);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 3px;
+}
+
+.modal-close {
+  border: 1px solid rgba(255, 95, 86, 0.65);
+  background: rgba(255, 95, 86, 0.08);
+  color: #ff5f56;
+  padding: 10px 14px;
+  font-family: "Courier New", monospace;
+  cursor: pointer;
+}
+
+.modal-content p {
+  color: rgba(217, 164, 65, 0.78);
+  line-height: 1.6;
+}
+
+.modal-content strong,
+.modal-content h3 {
+  color: #f0c46a;
+}
+
+.modal-content hr {
+  border: none;
+  border-top: 1px solid rgba(217, 164, 65, 0.18);
+  margin: 20px 0;
+}
+
+.log-line {
+  border-left: 2px solid rgba(217, 164, 65, 0.45);
+  padding-left: 12px;
+  margin-bottom: 12px;
+  color: rgba(217, 164, 65, 0.75);
+}
