@@ -118,7 +118,11 @@ document.addEventListener("DOMContentLoaded", function () {
     team: "Taj Mahal",
     specialty: "Tecnologia / Análise Digital",
     profile: "Clive estava na semana de congresso universitário quando encontrou uma placa de circuitos que parecia ser tecnologia elevada. Ao tentar usá-la num computador um ser de energia se manifestou. O rapaz não se lembra de nada depois disso, apenas que a maioria de seus amigos foram mortos e sua namorada desapareceu. A criatura parace ter uma rixa pessoal com ele. Foi recrutado para excalibur após realizar diversas buscas na internet. Atua",
-    missions: [],
+    missions: [
+      "Teatro de Bonecas",
+      "Sea of Madness",
+      "Vernissage"
+    ],
     restricted: {
       access: "COMANDO",
       evaluation: "",
@@ -241,7 +245,11 @@ document.addEventListener("DOMContentLoaded", function () {
     team: "Taj Mahal",
     specialty: "Operações Táticas",
     profile: "",
-    missions: [],
+    missions: [
+      "Teatro de Bonecas",
+      "Sea of Madness",
+      "Vernissage"
+    ],
     restricted: {
       access: "COMANDO",
       evaluation: "",
@@ -258,7 +266,11 @@ document.addEventListener("DOMContentLoaded", function () {
     team: "Taj Mahal",
     specialty: "Ocultismo",
     profile: "",
-    missions: [],
+    missions: [
+      "Teatro de Bonecas",
+      "Sea of Madness",
+      "Vernissage"
+    ],
     restricted: {
       access: "COMANDO",
       evaluation: "",
@@ -275,7 +287,10 @@ document.addEventListener("DOMContentLoaded", function () {
     team: "Taj Mahal",
     specialty: "Combate Tático",
     profile: "",
-    missions: [],
+    missions: [
+      "Teatro de Bonecas",
+      "Sea of Madness"
+    ],
     restricted: {
       access: "COMANDO",
       evaluation: "",
@@ -309,7 +324,10 @@ document.addEventListener("DOMContentLoaded", function () {
     team: "Taj Mahal",
     specialty: "Operações de Campo",
     profile: "",
-    missions: [],
+    missions: [
+      "Sea of Madness",
+      "Vernissage"
+    ],
     restricted: {
       access: "COMANDO",
       evaluation: "",
