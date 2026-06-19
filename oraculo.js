@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "Sonhos Eternos",
       "Férias Tropicais",
       "Gostosuras ou Travessuras",
-      "Presa de prata"
+      "Presa de prata",
       "Operação Cripta"
     ],
     restricted: {
@@ -175,7 +175,14 @@ document.addEventListener("DOMContentLoaded", function () {
     team: "Taj Mahal",
     specialty: "Campo / Ocultismo",
     profile: "A médica forense, Joana Vianey, tinha uma vida tranquila, mas algo sempre a incomodou. Lendo um blog de uma parapsicóloga que relatava histórias estranhas começou a investigar sobre a origem delas, até que a autora desaparece e Joana decide ir investigar. Se deparando com um caso onde pessoas entravam em coma permanente, seu primeiro contato com o paranormal. Foi recrutada por William após o ocorrido",
-    missions: [],
+    missions: [
+      "Sonhos Eternos",
+      "Férias Tropicais",
+      "Gostosuras ou Travessuras",
+      "Presa de prata",
+      "Sea of Madness",
+      "Vernissage"
+    ],
     restricted: {
       access: "COMANDO",
       evaluation: "",
