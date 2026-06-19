@@ -88,103 +88,219 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   ];
   const agents = [
-
-    
   {
     code: "EXC-0204",
     name: "Lina Ward",
     status: "ATIVO",
     access: "COMANDO",
     team: "Olho de Avalon",
-    specialty: "Infiltração Digital"
+    specialty: "Infiltração Digital",
+
+    profile:
+      "Entrou na Fundação Excalibur ainda jovem após ser salva por um agente da organização. Foi designada a uma equipe experimental formada por ele e se mostrou muito promissora, atuando no fornecimento de informações e apoio tecnológico. Perdeu os movimentos das pernas após um ataque de ocultista.",
+
+    missions: [],
+
+    restricted: {
+      access: "COMANDO",
+      evaluation:
+        "Apresenta desempenho elevado ao agir em momentos de crise, mantendo a calma e procurando a melhor forma de resolver. Sempre prestativa e gentil com os agentes.",
+      notes: "",
+      observations: ""
+    }
   },
+
   {
     code: "EXC-1013",
     name: "Clive Müller",
     status: "EM CAMPO",
     access: "AGENTE",
     team: "Taj Mahal",
-    specialty: "Tecnologia / Análise Digital"
+    specialty: "Tecnologia / Análise Digital",
+    profile: "Clive estava na semana de congresso universitário quando encontrou uma placa de circuitos que parecia ser tecnologia elevada. Ao tentar usá-la num computador um ser de energia se manifestou. O rapaz não se lembra de nada depois disso, apenas que a maioria de seus amigos foram mortos e sua namorada desapareceu. A criatura parace ter uma rixa pessoal com ele. Foi recrutado para excalibur após realizar diversas buscas na internet. Atua",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
   },
+
   {
     code: "EXC-1249",
     name: "Maxime Park",
     status: "ATIVO",
     access: "ANALISTA",
     team: "Scriptorium",
-    specialty: "Ocultismo"
-  },  
+    specialty: "Ocultismo",
+    profile: "",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+
   {
     code: "EXC-2146",
     name: "Elora Avalon",
     status: "EM CAMPO",
     access: "AGENTE",
-    team: "Não determinado",
-    specialty: "Operações de Campo"
-  },  
+    team: "Não designada",
+    specialty: "Operações de Campo",
+    profile: "Elora Avalon era uma policial dedicada na Escócia, dedicada a encontrar seus pais desaparecidos, estava sempre atenta a qualquer coisa que fosse estranha. Ela acompanhava o blog de uma parapsicóloga que relatava histórias estranhas. Quando não houve nenhum post em semanas, decidiu investigar e foi quando descobriu sobre a existêcia do paranormal e foi recrutada por William",
+    missions: [
+      "Sonhos Eternos",
+      "Férias Tropicais",
+      "Gostosuras ou Travessuras",
+      "Presa de prata"
+      "Operação Cripta"
+    ],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+
   {
     code: "EXC-2147",
     name: "Joana Vianey",
     status: "EM CAMPO",
     access: "AGENTE",
     team: "Taj Mahal",
-    specialty: "Campo / Ocultismo"
-  },  
+    specialty: "Campo / Ocultismo",
+    profile: "A médica forense, Joana Vianey, tinha uma vida tranquila, mas algo sempre a incomodou. Lendo um blog de uma parapsicóloga que relatava histórias estranhas começou a investigar sobre a origem delas, até que a autora desaparece e Joana decide ir investigar. Se deparando com um caso onde pessoas entravam em coma permanente, seu primeiro contato com o paranormal. Foi recrutada por William após o ocorrido",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+
   {
     code: "EXC-2148",
     name: "John Tiltor",
     status: "CAÍDO",
     access: "AGENTE",
     team: "Prélude",
-    specialty: "Campo / Ocultismo"
-  },  
+    specialty: "Campo / Ocultismo",
+    profile: "John Tiltor era um jornalista que teve seu primeiro contato com o paranormal ainda muito jovem, dentro de sua própria casa. Só veio se tornar um agente quando foi investigar casos de pessoas que pegavam no sono e não mais acordavam. Foi recrutado por William após esta missão. Caído em missão, após ",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+
   {
     code: "EXC-2189",
     name: "Hector Ignacius",
     status: "CAÍDO",
     access: "AGENTE",
     team: "Prélude",
-    specialty: "Campo / Infiltração"
+    specialty: "Campo / Infiltração",
+    profile: "",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
   },
+
   {
     code: "EXC-7166",
     name: "Maurice M. Mahmoudi",
     status: "ATIVO",
     access: "AGENTE",
     team: "Taj Mahal",
-    specialty: "Operações Táticas"
+    specialty: "Operações Táticas",
+    profile: "",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
   },
+
   {
     code: "EXC-7167",
     name: "Ash",
     status: "EM CAMPO",
     access: "AGENTE",
     team: "Taj Mahal",
-    specialty: "Ocultismo"
-  }, 
+    specialty: "Ocultismo",
+    profile: "",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+
   {
     code: "EXC-7168",
     name: "Robert Drake",
     status: "COMPROMETIDO",
     access: "AGENTE",
     team: "Taj Mahal",
-    specialty: "Combate Tático"
-  }, 
+    specialty: "Combate Tático",
+    profile: "",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+
   {
     code: "EXC-7175",
     name: "Isabella Ramos",
     status: "EM CAMPO",
     access: "AGENTE",
     team: "Taj Mahal",
-    specialty: "Ocultista / Pintura"
+    specialty: "Ocultista / Pintura",
+    profile: "",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
   },
+
   {
     code: "EXC-7812",
     name: "Alex Volkov",
     status: "ATIVA",
     access: "AGENTE",
     team: "Taj Mahal",
-    specialty: "Operações de Campo"
+    specialty: "Operações de Campo",
+    profile: "",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
   }
 ];
 
