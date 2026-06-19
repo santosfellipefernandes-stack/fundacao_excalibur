@@ -12,8 +12,8 @@ const agents = {
     level: "AGENTE"
   },
 
-  "EXC-091": {
-    password: "greenknight",
+  "EXC-7166": {
+    password: "Busqueconhecimento1044430403610",
     name: "Maurice",
     level: "AGENTE"
   },
