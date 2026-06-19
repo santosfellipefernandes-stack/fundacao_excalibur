@@ -199,7 +199,12 @@ document.addEventListener("DOMContentLoaded", function () {
     team: "Prélude",
     specialty: "Campo / Ocultismo",
     profile: "John Tiltor era um jornalista que teve seu primeiro contato com o paranormal ainda muito jovem, dentro de sua própria casa. Só veio se tornar um agente quando foi investigar casos de pessoas que pegavam no sono e não mais acordavam. Foi recrutado por William após esta missão. Caído em missão, após ",
-    missions: [],
+    missions: [
+      "Sonhos Eternos",
+      "Férias Tropicais",
+      "Gostosuras ou Travessuras",
+      "Presa de prata"
+    ],
     restricted: {
       access: "COMANDO",
       evaluation: "",
@@ -216,7 +221,10 @@ document.addEventListener("DOMContentLoaded", function () {
     team: "Prélude",
     specialty: "Campo / Infiltração",
     profile: "",
-    missions: [],
+    missions: [
+      "Gostosuras ou Travessuras",
+      "Presa de prata"
+    ],
     restricted: {
       access: "COMANDO",
       evaluation: "",
