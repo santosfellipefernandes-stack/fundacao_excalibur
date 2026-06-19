@@ -13,55 +13,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const missions = [
     {
-  code: "EXC-OP-0741",
-  codename: "Projeto Chroma",
-  status: "EM ANDAMENTO",
-  access: "PARCIAL",
-  clickable: true,
-  location: "San Francisco, Califórnia",
+      code: "EXC-OP-0741",
+      codename: "Projeto Chroma",
+      status: "EM ANDAMENTO",
+      access: "PARCIAL",
+      clickable: true,
+      location: "San Francisco, Califórnia",
 
-  summary: "Investigação ativa sobre alterações emocionais associadas a material pigmentado de origem ainda não confirmada.",
+      summary: "Investigação ativa sobre alterações emocionais associadas a material pigmentado de origem ainda não confirmada.",
 
-  objectives: [
-    "Identificar a origem do pigmento.",
-    "Mapear indivíduos afetados.",
-    "Determinar riscos de exposição prolongada.",
-    "Localizar possíveis responsáveis pela distribuição do material."
-  ],
+      objectives: [
+        "Identificar a origem do pigmento.",
+        "Mapear indivíduos afetados.",
+        "Determinar riscos de exposição prolongada.",
+        "Localizar possíveis responsáveis pela distribuição do material."
+      ],
 
-  team: [
-    "Equipe Taj Mahal"
-  ],
+      team: [
+        "Equipe Taj Mahal"
+      ],
 
-  agents: [
-    "Alex Volkov",
-    "Ash",
-    "Clive Müller",
-    "Joana Vianey",
-    "Maurice M. Mahmoudi"
-  ],
+      agents: [
+        "Alex Volkov",
+        "Ash",
+        "Clive Müller",
+        "Joana Vianey",
+        "Maurice M. Mahmoudi"
+      ],
 
-    files: [
-    {
-      id: "REL-001",
-      title: "Relatório preliminar da operação",
-      type: "RELATÓRIO",
-      status: "DISPONÍVEL"
+      images: [
+        // Exemplo futuro:
+        // "assets/chroma/pigmento.jpg",
+        // "assets/chroma/galeria.jpg"
+      ],
+
+      miroUrl: "",
+
+      logs: [
+        "09:42 // Relatório preliminar recebido.",
+        "09:17 // Amostras pigmentadas encaminhadas para análise.",
+        "08:51 // Ocorrência classificada como operação ativa."
+      ]
     },
-    {
-      id: "IMG-001",
-      title: "Registro visual de amostra pigmentada",
-      type: "IMAGEM",
-      status: "PENDENTE"
-    }
-  ],
 
-  logs: [
-    "09:42 // Relatório preliminar recebido.",
-    "09:17 // Amostras pigmentadas encaminhadas para análise.",
-    "08:51 // Ocorrência classificada como operação ativa."
-  ]
-},
     {
       code: "EXC-OP-0319",
       codename: "Maré Alta",
@@ -76,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Acesso liberado para agentes autorizados."
       ]
     },
+
     {
       code: "EXC-OP-0842",
       codename: "██████████",
@@ -83,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
       access: "NEGADO",
       clickable: false
     },
+
     {
       code: "EXC-OP-1027",
       codename: "██████████",
@@ -160,6 +156,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function renderList(containerId, items, emptyText) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+
+    if (items && items.length > 0) {
+      items.forEach(function (text) {
+        const item = document.createElement("div");
+        item.className = "log-line";
+        item.textContent = text;
+        container.appendChild(item);
+      });
+    } else {
+      container.innerHTML = `<div class="log-line">${emptyText}</div>`;
+    }
+  }
+
   function openMissionModal(mission) {
     document.getElementById("modalMissionCode").textContent = mission.code;
     document.getElementById("modalMissionName").textContent = mission.codename;
@@ -167,72 +179,38 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("modalMissionAccess").textContent = mission.access;
     document.getElementById("modalMissionLocation").textContent = mission.location || "NÃO DISPONÍVEL";
     document.getElementById("modalMissionSummary").textContent = mission.summary || "ARQUIVO RESTRITO.";
-    const objectivesContainer = document.getElementById("modalMissionObjectives");
-    objectivesContainer.innerHTML = "";
-    
-    if (mission.objectives) {
-      mission.objectives.forEach(function (objective) {
-        const item = document.createElement("div");
-        item.className = "log-line";
-        item.textContent = objective;
-        objectivesContainer.appendChild(item);
-      });
-    }
-    
-    const teamContainer = document.getElementById("modalMissionTeam");
-    teamContainer.innerHTML = "";
-    
-    if (mission.team) {
-      mission.team.forEach(function (team) {
-        const item = document.createElement("div");
-        item.className = "log-line";
-        item.textContent = team;
-        teamContainer.appendChild(item);
-      });
-    }
-    
-    const agentsContainer = document.getElementById("modalMissionAgents");
-    agentsContainer.innerHTML = "";
-    
-    if (mission.agents) {
-      mission.agents.forEach(function (agent) {
-        const item = document.createElement("div");
-        item.className = "log-line";
-        item.textContent = agent;
-        agentsContainer.appendChild(item);
-      });
-    }
-    const filesContainer = document.getElementById("modalMissionFiles");
-filesContainer.innerHTML = "";
 
-if (mission.files && mission.files.length > 0) {
-  mission.files.forEach(function (file) {
-    const fileLine = document.createElement("div");
-    fileLine.className = "file-link-line";
+    renderList("modalMissionObjectives", mission.objectives, "Nenhum objetivo disponível.");
+    renderList("modalMissionTeam", mission.team, "Nenhuma equipe vinculada.");
+    renderList("modalMissionAgents", mission.agents, "Nenhum agente vinculado.");
+    renderList("modalMissionLogs", mission.logs, "Nenhum log disponível.");
 
-    fileLine.innerHTML = `
-      <span>${file.id}</span>
-      <strong>${file.title}</strong>
-      <em>${file.type} // ${file.status}</em>
-    `;
+    const imagesContainer = document.getElementById("modalMissionImages");
+    imagesContainer.innerHTML = "";
 
-    filesContainer.appendChild(fileLine);
-  });
-} else {
-  filesContainer.textContent = "Nenhum arquivo vinculado.";
-}
-    const logsContainer = document.getElementById("modalMissionLogs");
-    logsContainer.innerHTML = "";
-
-    if (mission.logs && mission.logs.length > 0) {
-      mission.logs.forEach(function (log) {
-        const logLine = document.createElement("div");
-        logLine.className = "log-line";
-        logLine.textContent = log;
-        logsContainer.appendChild(logLine);
+    if (mission.images && mission.images.length > 0) {
+      mission.images.forEach(function (imageSrc) {
+        const img = document.createElement("img");
+        img.className = "case-image";
+        img.src = imageSrc;
+        img.alt = "Imagem relacionada ao caso";
+        imagesContainer.appendChild(img);
       });
     } else {
-      logsContainer.textContent = "Nenhum log disponível.";
+      imagesContainer.innerHTML = `<div class="log-line">Nenhuma imagem vinculada.</div>`;
+    }
+
+    const mapContainer = document.getElementById("modalMissionMap");
+    mapContainer.innerHTML = "";
+
+    if (mission.miroUrl) {
+      mapContainer.innerHTML = `
+        <a class="oraculo-action-button" href="${mission.miroUrl}" target="_blank">
+          ABRIR MAPA INVESTIGATIVO
+        </a>
+      `;
+    } else {
+      mapContainer.innerHTML = `<div class="log-line">Mapa investigativo não vinculado.</div>`;
     }
 
     missionModal.classList.add("active");
