@@ -87,10 +87,111 @@ document.addEventListener("DOMContentLoaded", function () {
       clickable: false
     }
   ];
+  const agents = [
+
+    
+  {
+    code: "EXC-0204",
+    name: "Lina Ward",
+    status: "ATIVO",
+    access: "COMANDO",
+    team: "Olho de Avalon",
+    specialty: "Infiltração Digital"
+  },
+  {
+    code: "EXC-1013",
+    name: "Clive Müller",
+    status: "EM CAMPO",
+    access: "AGENTE",
+    team: "Taj Mahal",
+    specialty: "Tecnologia / Análise Digital"
+  },
+  {
+    code: "EXC-1249",
+    name: "Maxime Park",
+    status: "ATIVO",
+    access: "ANALISTA",
+    team: "Scriptorium",
+    specialty: "Ocultismo"
+  },  
+  {
+    code: "EXC-2146",
+    name: "Elora Avalon",
+    status: "EM CAMPO",
+    access: "AGENTE",
+    team: "Não determinado",
+    specialty: "Operações de Campo"
+  },  
+  {
+    code: "EXC-2147",
+    name: "Joana Vianey",
+    status: "EM CAMPO",
+    access: "AGENTE",
+    team: "Taj Mahal",
+    specialty: "Campo / Ocultismo"
+  },  
+  {
+    code: "EXC-2148",
+    name: "John Tiltor",
+    status: "CAÍDO",
+    access: "AGENTE",
+    team: "Prélude",
+    specialty: "Campo / Ocultismo"
+  },  
+  {
+    code: "EXC-2189",
+    name: "Hector Ignacius",
+    status: "CAÍDO",
+    access: "AGENTE",
+    team: "Prélude",
+    specialty: "Campo / Infiltração"
+  },
+  {
+    code: "EXC-7166",
+    name: "Maurice M. Mahmoudi",
+    status: "ATIVO",
+    access: "AGENTE",
+    team: "Taj Mahal",
+    specialty: "Operações Táticas"
+  },
+  {
+    code: "EXC-7167",
+    name: "Ash",
+    status: "EM CAMPO",
+    access: "AGENTE",
+    team: "Taj Mahal",
+    specialty: "Ocultismo"
+  }, 
+  {
+    code: "EXC-7168",
+    name: "Robert Drake",
+    status: "COMPROMETIDO",
+    access: "AGENTE",
+    team: "Taj Mahal",
+    specialty: "Combate Tático"
+  }, 
+  {
+    code: "EXC-7175",
+    name: "Isabella Ramos",
+    status: "EM CAMPO",
+    access: "AGENTE",
+    team: "Taj Mahal",
+    specialty: "Ocultista / Pintura"
+  },
+  {
+    code: "EXC-7812",
+    name: "Alex Volkov",
+    status: "ATIVA",
+    access: "AGENTE",
+    team: "Taj Mahal",
+    specialty: "Operações de Campo"
+  }
+];
 
   const contentArea = document.getElementById("content-area");
   const overviewBtn = document.getElementById("overviewBtn");
   const missionsBtn = document.getElementById("missionsBtn");
+  const agentsBtn = document.getElementById("agentsBtn");
   const menuButtons = document.querySelectorAll(".menu-button");
 
   const missionModal = document.getElementById("missionModal");
@@ -230,6 +331,46 @@ document.addEventListener("DOMContentLoaded", function () {
     renderMissionsTable();
   });
 
+  agentsBtn.addEventListener("click", function () {
+  setActiveButton(agentsBtn);
+
+  const rows = agents.map(function (agent) {
+    return `
+      <tr class="clickable-row" data-agent="${agent.code}">
+        <td>${agent.code}</td>
+        <td>${agent.name}</td>
+        <td>${agent.status}</td>
+        <td>${agent.access}</td>
+      </tr>
+    `;
+  }).join("");
+
+  contentArea.innerHTML = `
+    <section class="database-panel">
+      <div class="panel-header">
+        <h2>AGENTES REGISTRADOS</h2>
+        <span>EXCALIBUR PERSONNEL DATABASE</span>
+      </div>
+
+      <table class="mission-table">
+        <thead>
+          <tr>
+            <th>CÓDIGO</th>
+            <th>NOME</th>
+            <th>STATUS</th>
+            <th>ACESSO</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    </section>
+  `;
+});
+
+  
   closeMissionModal.addEventListener("click", closeModal);
 
   missionModal.addEventListener("click", function (event) {
