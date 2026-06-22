@@ -168,7 +168,48 @@
 
     </div>
   </div>
+<div class="modal-overlay" id="agentModal">
+  <div class="mission-modal agent-dossier">
 
+    <div class="modal-header">
+      <div>
+        <p class="section-kicker" id="modalAgentCode">EXC-0000</p>
+        <h2 id="modalAgentName">AGENTE</h2>
+      </div>
+
+      <button class="modal-close" id="closeAgentModal">FECHAR</button>
+    </div>
+
+    <div class="modal-content">
+
+      <div class="agent-dossier-grid">
+        <div class="agent-photo-placeholder">
+          FOTO NÃO DISPONÍVEL
+        </div>
+
+        <div>
+          <p><strong>Status:</strong> <span id="modalAgentStatus"></span></p>
+          <p><strong>Acesso:</strong> <span id="modalAgentAccess"></span></p>
+          <p><strong>Equipe:</strong> <span id="modalAgentTeam"></span></p>
+          <p><strong>Especialização:</strong> <span id="modalAgentSpecialty"></span></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <h3>Perfil Operacional</h3>
+      <p id="modalAgentProfile"></p>
+
+      <h3>Missões Registradas</h3>
+      <div id="modalAgentMissions"></div>
+
+      <h3>Avaliação Operacional</h3>
+      <div id="modalAgentRestricted"></div>
+
+    </div>
+
+  </div>
+</div>
   <script src="oraculo.js"></script>
 
 </body>
