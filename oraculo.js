@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const missions = [
     {
       code: "EXC-OP-0741",
-      codename: "Projeto Chroma",
+      codename: "Vernissage",
       status: "EM ANDAMENTO",
       access: "PARCIAL",
       clickable: true,
@@ -346,6 +346,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const missionModal = document.getElementById("missionModal");
   const closeMissionModal = document.getElementById("closeMissionModal");
 
+  const agentModal = document.getElementById("agentModal");
+  const closeAgentModal = document.getElementById("closeAgentModal");
+
   const overviewContent = contentArea.innerHTML;
 
   function setActiveButton(activeButton) {
@@ -466,6 +469,59 @@ document.addEventListener("DOMContentLoaded", function () {
     missionModal.classList.add("active");
   }
 
+  function openAgentModal(agent) {
+
+  document.getElementById("modalAgentCode").textContent = agent.code;
+  document.getElementById("modalAgentName").textContent = agent.name;
+  document.getElementById("modalAgentStatus").textContent = agent.status;
+  document.getElementById("modalAgentAccess").textContent = agent.access;
+  document.getElementById("modalAgentTeam").textContent = agent.team;
+  document.getElementById("modalAgentSpecialty").textContent = agent.specialty;
+
+  document.getElementById("modalAgentProfile").textContent =
+    agent.profile || "Nenhum perfil registrado.";
+
+  const missionsContainer =
+    document.getElementById("modalAgentMissions");
+
+  missionsContainer.innerHTML = "";
+
+  if (agent.missions && agent.missions.length > 0) {
+
+    agent.missions.forEach(function (mission) {
+
+      const item = document.createElement("div");
+
+      item.className = "log-line";
+      item.textContent = mission;
+
+      missionsContainer.appendChild(item);
+
+    });
+
+  } else {
+
+    missionsContainer.innerHTML =
+      `<div class="log-line">Nenhuma missão registrada.</div>`;
+
+  }
+
+  const restrictedContainer =
+    document.getElementById("modalAgentRestricted");
+
+  restrictedContainer.innerHTML = `
+    <div class="log-line">
+      ████████████████████████████
+    </div>
+
+    <div class="log-line">
+      AUTORIZAÇÃO COMANDO NECESSÁRIA
+    </div>
+  `;
+
+  agentModal.classList.add("active");
+}
+
   function closeModal() {
     missionModal.classList.remove("active");
   }
@@ -517,6 +573,21 @@ document.addEventListener("DOMContentLoaded", function () {
       </table>
     </section>
   `;
+    document.querySelectorAll(".clickable-row").forEach(function (row) {
+
+  row.addEventListener("click", function () {
+
+    const code = row.getAttribute("data-agent");
+
+    const agent = agents.find(function (item) {
+      return item.code === code;
+    });
+
+    openAgentModal(agent);
+
+  });
+
+});
 });
 
   
@@ -527,4 +598,13 @@ document.addEventListener("DOMContentLoaded", function () {
       closeModal();
     }
   });
+  closeAgentModal.addEventListener("click", function () {
+  agentModal.classList.remove("active");
+});
+
+agentModal.addEventListener("click", function (event) {
+  if (event.target === agentModal) {
+    agentModal.classList.remove("active");
+  }
+});
 });
