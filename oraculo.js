@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   {
     code: "EXC-1249",
-    name: "Maxime Park",
+    name: "Max Park",
     status: "ATIVO",
     access: "ANALISTA",
     team: "Scriptorium",
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
     access: "AGENTE",
     team: "Prélude",
     specialty: "Campo / Ocultismo",
-    profile: "John Tiltor era um jornalista que teve seu primeiro contato com o paranormal ainda muito jovem, dentro de sua própria casa. Só veio se tornar um agente quando foi investigar casos de pessoas que pegavam no sono e não mais acordavam. Foi recrutado por William após esta missão. Caído em missão, após ",
+    profile: "John Tiltor era um jornalista que teve seu primeiro contato com o paranormal ainda muito jovem, dentro de sua própria casa. Só veio se tornar um agente quando foi investigar casos de pessoas que pegavam no sono e não mais acordavam. Foi recrutado por William após esta missão. Caído em missão, durante o confronto com uma criatura não identificada",
     missions: [
       "Sonhos Eternos",
       "Férias Tropicais",
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
     access: "AGENTE",
     team: "Prélude",
     specialty: "Campo / Infiltração",
-    profile: "",
+    profile: "Hector Ignatius era um criminoso da américa do sul, que foi recrutado pelo agente Santiago Hernandez durante um incidente com uma criatura que foi atribuído o nome de chupa-cabra. Logo recebeu alguns treinamento, foi alocado na equipe Prélude que foi enviada para investigar acontecimentos no Maine. Caído em missão, durante o confronto com uma criatura não identificada",
     missions: [
       "Gostosuras ou Travessuras",
       "Presa de prata"
