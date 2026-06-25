@@ -110,6 +110,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   },
 
+ {
+    code: "EXC-0312",
+    name: "Vilma Binkley",
+    status: "ATIVO",
+    access: "ANALISTA",
+    team: "Gangue do Slooby",
+    specialty: "Investigação",
+
+    profile:
+      "Quando ainda estava na escola ela e seus amigos se depararam com algo que nao estavam
+      preparados. O que estavam lidando não era simples mistérios, mas algo além. A situacão ficou pior quando descobriram um cão mais inteligente que o normal, uma cobaia de experimentos realizados por um laboratório. Isso os levou diretamente a Excalibur",
+
+    missions: [],
+
+    restricted: {
+      access: "COMANDO",
+      evaluation:
+        "",
+      notes: "",
+      observations: ""
+    }
+  },
+
   {
     code: "EXC-1013",
     name: "Clive Müller",
@@ -319,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function () {
   {
     code: "EXC-7812",
     name: "Alex Volkov",
-    status: "ATIVA",
+    status: "EM CAMPO",
     access: "AGENTE",
     team: "Taj Mahal",
     specialty: "Operações de Campo",
