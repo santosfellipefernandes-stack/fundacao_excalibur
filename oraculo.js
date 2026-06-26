@@ -590,43 +590,55 @@ function openAkaneModal(agent) {
   agentModal.classList.add("akane-corrupted");
   document.body.classList.add("akane-screen-glitch");
 
-  document.getElementById("modalAgentCode").textContent = "ERRO // EXC-4044";
-  document.getElementById("modalAgentName").textContent = "REGISTRO CORROMPIDO";
-  document.getElementById("modalAgentStatus").textContent = "████████";
+  document.getElementById("modalAgentCode").textContent = "EXC-4044";
+  document.getElementById("modalAgentName").textContent = "AKANE HAYASHI";
+  document.getElementById("modalAgentStatus").textContent = "REGISTRO INCOMPLETO";
   document.getElementById("modalAgentAccess").textContent = "COMANDO";
-  document.getElementById("modalAgentTeam").textContent = "████████";
-  document.getElementById("modalAgentSpecialty").textContent = "████████";
+  document.getElementById("modalAgentTeam").textContent = "NÃO DESIGNADA";
+  document.getElementById("modalAgentSpecialty").textContent = "COMBATE";
 
   document.getElementById("modalAgentProfile").textContent =
-    "Falha de leitura. Tentando reconstruir o arquivo...";
+    "Carregando registro operacional...";
 
   document.getElementById("modalAgentMissions").innerHTML =
-    `<div class="log-line akane-error">DADOS CORROMPIDOS // RECUPERAÇÃO PARCIAL</div>`;
+    `<div class="log-line">Consultando arquivos vinculados...</div>`;
 
-  document.getElementById("modalAgentRestricted").innerHTML = `
-    <div class="log-line akane-error">PROTOCOLO AVALON-04 INSTÁVEL.</div>
-    <div class="log-line akane-whisper">...</div>
-  `;
+  document.getElementById("modalAgentRestricted").innerHTML =
+    `<div class="log-line">Sincronizando avaliação operacional...</div>`;
 
   agentModal.classList.add("active");
 
   setTimeout(function () {
-    document.getElementById("modalAgentRestricted").innerHTML = `
-      <div class="log-line akane-error">INTERFERÊNCIA DETECTADA.</div>
-      <div class="log-line akane-whisper">
-        ${currentAgentName}, você não deveria estar lendo isto.
-      </div>
-    `;
+    document.getElementById("modalAgentProfile").textContent =
+      "O registro parece respirar por um instante. As letras tremem, como se alguém do outro lado estivesse tocando a superfície da tela.";
   }, 1200);
 
   setTimeout(function () {
-    document.getElementById("modalAgentCode").textContent = agent.code;
-    document.getElementById("modalAgentName").textContent = agent.name;
-    document.getElementById("modalAgentStatus").textContent = "████████";
-    document.getElementById("modalAgentAccess").textContent = agent.access;
-    document.getElementById("modalAgentTeam").textContent = "████████";
-    document.getElementById("modalAgentSpecialty").textContent = "Combate";
+    document.getElementById("modalAgentMissions").innerHTML = `
+      <div class="log-line akane-whisper">Nenhuma missão encontrada.</div>
+      <div class="log-line akane-whisper">Nenhuma testemunha confirmada.</div>
+      <div class="log-line akane-whisper">Nenhum corpo recuperado.</div>
+    `;
+  }, 2400);
 
+  setTimeout(function () {
+    document.getElementById("modalAgentRestricted").innerHTML = `
+      <div class="log-line akane-error">PRESENÇA DETECTADA</div>
+      <div class="log-line akane-whisper">
+        ${currentAgentName}, pare de procurar.
+      </div>
+    `;
+  }, 3900);
+
+  setTimeout(function () {
+    document.getElementById("modalAgentRestricted").innerHTML = `
+      <div class="log-line akane-whisper">
+        Se um dia ela quiser ser encontrada, você saberá.
+      </div>
+    `;
+  }, 6200);
+
+  setTimeout(function () {
     document.getElementById("modalAgentProfile").textContent = agent.profile;
 
     renderList("modalAgentMissions", agent.missions, "Nenhuma missão registrada.");
@@ -634,19 +646,11 @@ function openAkaneModal(agent) {
     document.getElementById("modalAgentRestricted").innerHTML = `
       <div class="log-line">████████████████████████████</div>
       <div class="log-line">AUTORIZAÇÃO DIRETORIA NECESSÁRIA</div>
-      <div class="log-line akane-whisper" id="akaneWhisper">Última sincronização: AGORA</div>
+      <div class="log-line">Última sincronização: INDETERMINADA</div>
     `;
 
     document.body.classList.remove("akane-screen-glitch");
-  }, 3000);
-
-  setTimeout(function () {
-    const whisper = document.getElementById("akaneWhisper");
-
-    if (whisper) {
-      whisper.textContent = "Registro verificado.";
-    }
-  }, 6500);
+  }, 8500);
 }
   
   function openAgentModal(agent) {
@@ -783,13 +787,16 @@ function openAkaneModal(agent) {
       closeModal();
     }
   });
-  closeAgentModal.addEventListener("click", function () {
+  function closeAgentDossier() {
   agentModal.classList.remove("active");
-});
+  agentModal.classList.remove("akane-corrupted");
+  document.body.classList.remove("akane-screen-glitch");
+}
+
+closeAgentModal.addEventListener("click", closeAgentDossier);
 
 agentModal.addEventListener("click", function (event) {
   if (event.target === agentModal) {
-    agentModal.classList.remove("active");
+    closeAgentDossier();
   }
-});
 });
