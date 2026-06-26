@@ -793,6 +793,12 @@ function openAkaneModal(agent) {
   document.body.classList.remove("akane-screen-glitch");
 }
 
+function closeAgentDossier() {
+  agentModal.classList.remove("active");
+  agentModal.classList.remove("akane-corrupted");
+  document.body.classList.remove("akane-screen-glitch");
+}
+
 closeAgentModal.addEventListener("click", closeAgentDossier);
 
 agentModal.addEventListener("click", function (event) {
