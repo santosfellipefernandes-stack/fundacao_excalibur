@@ -723,7 +723,7 @@ function openAkaneModal(agent) {
         <div class="akane-system-submessage">Nenhum arquivo associado ao código EXC-4044.</div>
       </div>
     `;
-  }, 1200));
+  }, 1400));
 
   akaneTimers.push(setTimeout(function () {
     document.getElementById("modalAgentProfile").innerHTML = `
