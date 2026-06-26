@@ -585,23 +585,39 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 function openAkaneModal(agent) {
-  document.getElementById("modalAgentCode").textContent = "SOLICITANDO REGISTRO...";
-  document.getElementById("modalAgentName").textContent = "AGENTE NÃO ENCONTRADA";
+  const currentAgentName = agentData.name || "AGENTE";
+
+  agentModal.classList.add("akane-corrupted");
+  document.body.classList.add("akane-screen-glitch");
+
+  document.getElementById("modalAgentCode").textContent = "ERRO // EXC-4044";
+  document.getElementById("modalAgentName").textContent = "REGISTRO CORROMPIDO";
   document.getElementById("modalAgentStatus").textContent = "████████";
   document.getElementById("modalAgentAccess").textContent = "COMANDO";
   document.getElementById("modalAgentTeam").textContent = "████████";
   document.getElementById("modalAgentSpecialty").textContent = "████████";
 
   document.getElementById("modalAgentProfile").textContent =
-    "Recuperando índice do Arquivo Central...";
+    "Falha de leitura. Tentando reconstruir o arquivo...";
 
   document.getElementById("modalAgentMissions").innerHTML =
-    `<div class="log-line">SINCRONIZAÇÃO FALHOU.</div>`;
+    `<div class="log-line akane-error">DADOS CORROMPIDOS // RECUPERAÇÃO PARCIAL</div>`;
 
-  document.getElementById("modalAgentRestricted").innerHTML =
-    `<div class="log-line">PROTOCOLO AVALON-01 ATIVO.</div>`;
+  document.getElementById("modalAgentRestricted").innerHTML = `
+    <div class="log-line akane-error">PROTOCOLO AVALON-04 INSTÁVEL.</div>
+    <div class="log-line akane-whisper">...</div>
+  `;
 
   agentModal.classList.add("active");
+
+  setTimeout(function () {
+    document.getElementById("modalAgentRestricted").innerHTML = `
+      <div class="log-line akane-error">INTERFERÊNCIA DETECTADA.</div>
+      <div class="log-line akane-whisper">
+        ${currentAgentName}, você não deveria estar lendo isto.
+      </div>
+    `;
+  }, 1200);
 
   setTimeout(function () {
     document.getElementById("modalAgentCode").textContent = agent.code;
@@ -620,7 +636,9 @@ function openAkaneModal(agent) {
       <div class="log-line">AUTORIZAÇÃO DIRETORIA NECESSÁRIA</div>
       <div class="log-line akane-whisper" id="akaneWhisper">Última sincronização: AGORA</div>
     `;
-  }, 1800);
+
+    document.body.classList.remove("akane-screen-glitch");
+  }, 3000);
 
   setTimeout(function () {
     const whisper = document.getElementById("akaneWhisper");
@@ -628,7 +646,7 @@ function openAkaneModal(agent) {
     if (whisper) {
       whisper.textContent = "Registro verificado.";
     }
-  }, 5200);
+  }, 6500);
 }
   
   function openAgentModal(agent) {
