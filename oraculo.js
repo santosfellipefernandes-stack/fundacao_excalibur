@@ -663,6 +663,7 @@ function openAkaneModal(agent) {
     `;
 
     document.body.classList.remove("akane-screen-glitch");
+    agentModal.classList.remove("akane-corrupted");
   }, 8500)
   );
 }
