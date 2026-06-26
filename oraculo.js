@@ -584,6 +584,53 @@ document.addEventListener("DOMContentLoaded", function () {
     missionModal.classList.add("active");
   }
 
+function openAkaneModal(agent) {
+  document.getElementById("modalAgentCode").textContent = "SOLICITANDO REGISTRO...";
+  document.getElementById("modalAgentName").textContent = "AGENTE NÃO ENCONTRADA";
+  document.getElementById("modalAgentStatus").textContent = "████████";
+  document.getElementById("modalAgentAccess").textContent = "COMANDO";
+  document.getElementById("modalAgentTeam").textContent = "████████";
+  document.getElementById("modalAgentSpecialty").textContent = "████████";
+
+  document.getElementById("modalAgentProfile").textContent =
+    "Recuperando índice do Arquivo Central...";
+
+  document.getElementById("modalAgentMissions").innerHTML =
+    `<div class="log-line">SINCRONIZAÇÃO FALHOU.</div>`;
+
+  document.getElementById("modalAgentRestricted").innerHTML =
+    `<div class="log-line">PROTOCOLO AVALON-01 ATIVO.</div>`;
+
+  agentModal.classList.add("active");
+
+  setTimeout(function () {
+    document.getElementById("modalAgentCode").textContent = agent.code;
+    document.getElementById("modalAgentName").textContent = agent.name;
+    document.getElementById("modalAgentStatus").textContent = "████████";
+    document.getElementById("modalAgentAccess").textContent = agent.access;
+    document.getElementById("modalAgentTeam").textContent = "████████";
+    document.getElementById("modalAgentSpecialty").textContent = "Combate";
+
+    document.getElementById("modalAgentProfile").textContent = agent.profile;
+
+    renderList("modalAgentMissions", agent.missions, "Nenhuma missão registrada.");
+
+    document.getElementById("modalAgentRestricted").innerHTML = `
+      <div class="log-line">████████████████████████████</div>
+      <div class="log-line">AUTORIZAÇÃO DIRETORIA NECESSÁRIA</div>
+      <div class="log-line akane-whisper" id="akaneWhisper">Última sincronização: AGORA</div>
+    `;
+  }, 1800);
+
+  setTimeout(function () {
+    const whisper = document.getElementById("akaneWhisper");
+
+    if (whisper) {
+      whisper.textContent = "Registro verificado.";
+    }
+  }, 5200);
+}
+  
   function openAgentModal(agent) {
 
    if (agent.isLegend) {
