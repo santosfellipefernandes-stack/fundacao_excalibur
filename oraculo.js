@@ -586,8 +586,26 @@ document.addEventListener("DOMContentLoaded", function () {
     missionModal.classList.add("active");
   }
 
-function openAkaneModal(agent) {
+function typeAkaneText(text, elementId, speed) {
+  const element = document.getElementById(elementId);
+  let index = 0;
 
+  function typeNextCharacter() {
+    if (!element) return;
+
+    if (index < text.length) {
+      element.innerHTML += text.charAt(index);
+      index++;
+
+      const timer = setTimeout(typeNextCharacter, speed);
+      akaneTimers.push(timer);
+    }
+  }
+
+  typeNextCharacter();
+}
+  
+function openAkaneModal(agent) {
   akaneTimers.forEach(clearTimeout);
   akaneTimers = [];
 
@@ -597,103 +615,103 @@ function openAkaneModal(agent) {
   agentModal.classList.add("akane-corrupted");
   document.body.classList.add("akane-screen-glitch");
 
-  document.getElementById("modalAgentCode").textContent = "CONSULTA // EXC-4044";
-  document.getElementById("modalAgentName").textContent = "REGISTRO NÃO ENCONTRADO";
-  document.getElementById("modalAgentStatus").textContent = "FALHA";
-  document.getElementById("modalAgentAccess").textContent = "INDETERMINADO";
-  document.getElementById("modalAgentTeam").textContent = "INDETERMINADO";
-  document.getElementById("modalAgentSpecialty").textContent = "INDETERMINADO";
+  document.getElementById("modalAgentCode").textContent = "";
+  document.getElementById("modalAgentName").textContent = "";
+  document.getElementById("modalAgentStatus").textContent = "";
+  document.getElementById("modalAgentAccess").textContent = "";
+  document.getElementById("modalAgentTeam").textContent = "";
+  document.getElementById("modalAgentSpecialty").textContent = "";
 
   document.getElementById("modalAgentProfile").innerHTML = `
-    <div class="akane-empty-file">
-      <div class="akane-error">ARQUIVO NÃO ENCONTRADO</div>
-      <div class="log-line">Nenhum registro operacional localizado.</div>
-      <div class="log-line">Nenhum histórico de campo disponível.</div>
-      <div class="log-line">Nenhuma confirmação biométrica arquivada.</div>
+    <div class="akane-blank-screen">
+      <div class="akane-system-message">CONSULTANDO EXC-4044...</div>
     </div>
   `;
 
-  document.getElementById("modalAgentMissions").innerHTML = `
-    <div class="log-line">MISSÕES VINCULADAS: NÃO LOCALIZADAS</div>
-  `;
-
-  document.getElementById("modalAgentRestricted").innerHTML = `
-    <div class="log-line">Inicializando recuperação do Índice Merlin...</div>
-    <div class="akane-loading-bar">
-      <div class="akane-loading-fill"></div>
-    </div>
-    <div class="log-line akane-loading-text">Reconstruindo fragmentos do arquivo...</div>
-  `;
+  document.getElementById("modalAgentMissions").innerHTML = "";
+  document.getElementById("modalAgentRestricted").innerHTML = "";
 
   akaneTimers.push(setTimeout(function () {
-    document.getElementById("modalAgentName").textContent = "RECUPERAÇÃO EM ANDAMENTO";
-    document.getElementById("modalAgentStatus").textContent = "RECONSTRUINDO";
-
     document.getElementById("modalAgentProfile").innerHTML = `
-      <div class="log-line">Fragmento 01 encontrado.</div>
-      <div class="log-line">Fragmento 02 corrompido.</div>
-      <div class="log-line">Fragmento 03 ausente.</div>
-      <div class="log-line akane-error">Inconsistência detectada no arquivo EXC-4044.</div>
+      <div class="akane-blank-screen">
+        <div class="akane-system-message akane-error">DADOS NÃO ENCONTRADOS.</div>
+        <div class="akane-system-submessage">Nenhum arquivo associado ao código EXC-4044.</div>
+      </div>
     `;
-  }, 1800));
+  }, 1200));
 
   akaneTimers.push(setTimeout(function () {
+    document.getElementById("modalAgentProfile").innerHTML = `
+      <div class="akane-blank-screen">
+        <div class="akane-system-message">RECUPERANDO FRAGMENTOS...</div>
+        <div class="akane-loading-bar">
+          <div class="akane-loading-fill"></div>
+        </div>
+      </div>
+    `;
+  }, 3000));
+
+  akaneTimers.push(setTimeout(function () {
+    document.getElementById("modalAgentProfile").innerHTML = `
+      <div class="akane-blank-screen">
+        <div id="akaneTypedMessage" class="akane-typed-message"></div>
+      </div>
+    `;
+
+    typeAkaneText("Você está procurando por mim?", "akaneTypedMessage", 70);
+  }, 6200));
+
+  akaneTimers.push(setTimeout(function () {
+    document.getElementById("akaneTypedMessage").innerHTML = "";
+    typeAkaneText(currentAgentName + "...", "akaneTypedMessage", 95);
+  }, 8600));
+
+  akaneTimers.push(setTimeout(function () {
+    document.getElementById("akaneTypedMessage").innerHTML = "";
+    typeAkaneText("Não olhe para o arquivo. Olhe para trás.", "akaneTypedMessage", 65);
+  }, 10500));
+
+  akaneTimers.push(setTimeout(function () {
+    document.body.classList.add("akane-screen-glitch");
+
     document.getElementById("modalAgentCode").textContent = "EXC-4044";
-    document.getElementById("modalAgentName").textContent = "██████ HAYASHI";
-    document.getElementById("modalAgentStatus").textContent = "PRESENÇA DETECTADA";
-    document.getElementById("modalAgentAccess").textContent = "████████";
-    document.getElementById("modalAgentTeam").textContent = "████████";
-    document.getElementById("modalAgentSpecialty").textContent = "COMBATE";
-
-    document.getElementById("modalAgentRestricted").innerHTML = `
-      <div class="log-line akane-error">A recuperação foi interrompida.</div>
-      <div class="log-line akane-whisper">...</div>
-    `;
-  }, 3600));
-
-  akaneTimers.push(setTimeout(function () {
-    document.getElementById("modalAgentRestricted").innerHTML = `
-      <div class="log-line akane-whisper">
-        ${currentAgentName}.
-      </div>
-      <div class="log-line akane-whisper">
-        Você está olhando para o lugar errado.
-      </div>
-    `;
-  }, 5200));
-
-  akaneTimers.push(setTimeout(function () {
-    document.getElementById("modalAgentRestricted").innerHTML = `
-      <div class="log-line akane-whisper">
-        Não procure pegadas de alguém que não toca o chão.
-      </div>
-    `;
-  }, 7100));
-
-  akaneTimers.push(setTimeout(function () {
-    document.getElementById("modalAgentCode").textContent = agent.code;
-    document.getElementById("modalAgentName").textContent = agent.name;
+    document.getElementById("modalAgentName").textContent = "A█A█E HAY█SHI";
     document.getElementById("modalAgentStatus").textContent = "████████";
-    document.getElementById("modalAgentAccess").textContent = agent.access;
+    document.getElementById("modalAgentAccess").textContent = "COMANDO";
     document.getElementById("modalAgentTeam").textContent = "████████";
-    document.getElementById("modalAgentSpecialty").textContent = agent.specialty;
+    document.getElementById("modalAgentSpecialty").textContent = "C█M█ATE";
 
-    document.getElementById("modalAgentProfile").textContent = agent.profile;
+    document.getElementById("modalAgentProfile").textContent =
+      "A existência desta agente nunca foi oficialmente confirmada pela Fundação Excalibur. Rumores sobre sua atuação circulam entre agentes veteranos há anos, embora nenhum registro fotográfico ou testemunho formal tenha sido autenticado.";
+
+    document.getElementById("modalAgentMissions").innerHTML = `
+      <div class="log-line akane-whisper">███ ██ ███████</div>
+      <div class="log-line akane-whisper">Operação ███████</div>
+      <div class="log-line akane-whisper">Nenhum sobrevivente confirmou contato visual.</div>
+    `;
+
+    document.getElementById("modalAgentRestricted").innerHTML = `
+      <div class="log-line akane-error">ARQUIVO PARCIALMENTE RESTAURADO</div>
+      <div class="log-line">AUTORIZAÇÃO DIRETORIA NECESSÁRIA</div>
+      <div class="log-line">Última sincronização: AGORA</div>
+    `;
+  }, 13500));
+
+  akaneTimers.push(setTimeout(function () {
+    document.getElementById("modalAgentName").textContent = agent.name;
+    document.getElementById("modalAgentSpecialty").textContent = agent.specialty;
 
     renderList("modalAgentMissions", agent.missions, "Nenhuma missão registrada.");
 
     document.getElementById("modalAgentRestricted").innerHTML = `
-      <div class="log-line akane-error">ARQUIVO PARCIALMENTE RESTAURADO</div>
       <div class="log-line">████████████████████████████</div>
       <div class="log-line">AUTORIZAÇÃO DIRETORIA NECESSÁRIA</div>
       <div class="log-line">Última sincronização: INDETERMINADA</div>
     `;
-  }, 9200));
 
-  akaneTimers.push(setTimeout(function () {
     document.body.classList.remove("akane-screen-glitch");
     agentModal.classList.remove("akane-corrupted");
-  }, 12000));
+  }, 17000));
 }
   
   function openAgentModal(agent) {
