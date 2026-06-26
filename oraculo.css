@@ -664,3 +664,85 @@ h1 {
     width: 96%;
   }
 }
+.akane-blank-screen {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgba(217, 164, 65, 0.85);
+  text-align: center;
+}
+
+.akane-system-message {
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: #f0c46a;
+  text-transform: uppercase;
+}
+
+.akane-system-submessage {
+  margin-top: 14px;
+  color: rgba(217, 164, 65, 0.55);
+}
+
+.akane-loading-bar {
+  width: 70%;
+  height: 12px;
+  border: 1px solid rgba(217, 164, 65, 0.55);
+  margin-top: 24px;
+  overflow: hidden;
+  background: rgba(217, 164, 65, 0.06);
+}
+
+.akane-loading-fill {
+  width: 0%;
+  height: 100%;
+  background: rgba(240, 196, 106, 0.8);
+  animation: akaneLoading 2.7s ease-in-out forwards;
+}
+
+.akane-typed-message {
+  min-height: 40px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #f0c46a;
+  text-shadow: 0 0 14px rgba(240, 196, 106, 0.85);
+}
+
+.akane-typed-message::after {
+  content: "_";
+  animation: akaneCursorBlink 0.7s infinite;
+}
+
+@keyframes akaneLoading {
+  0% {
+    width: 0%;
+  }
+
+  40% {
+    width: 42%;
+  }
+
+  65% {
+    width: 44%;
+  }
+
+  80% {
+    width: 71%;
+  }
+
+  100% {
+    width: 98%;
+  }
+}
+
+@keyframes akaneCursorBlink {
+  0%, 50% {
+    opacity: 1;
+  }
+
+  51%, 100% {
+    opacity: 0;
+  }
+}
