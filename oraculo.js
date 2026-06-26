@@ -261,12 +261,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   {
     code: "EXC-2147",
-    name: "Joana Vianey",
+    name: "Joana Vianney",
     status: "EM CAMPO",
     access: "AGENTE",
     team: "Taj Mahal",
     specialty: "Campo / Ocultismo",
-    profile: "A médica forense, Joana Vianey, tinha uma vida tranquila, mas algo sempre a incomodou. Lendo um blog de uma parapsicóloga que relatava histórias estranhas começou a investigar sobre a origem delas, até que a autora desaparece e Joana decide ir investigar. Se deparando com um caso onde pessoas entravam em coma permanente, seu primeiro contato com o paranormal. Foi recrutada por William após o ocorrido",
+    profile: "A médica forense, Joana Vianney, tinha uma vida tranquila, mas algo sempre a incomodou. Lendo um blog de uma parapsicóloga que relatava histórias estranhas começou a investigar sobre a origem delas, até que a autora desaparece e Joana decide ir investigar. Se deparando com um caso onde pessoas entravam em coma permanente, seu primeiro contato com o paranormal. Foi recrutada por William após o ocorrido",
     missions: [
       "Sonhos Eternos",
       "Férias Tropicais",
