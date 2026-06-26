@@ -219,6 +219,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   },
 
+   {
+    code: "EXC-1214",
+    name: "Gonzales ",
+    status: "ATIVO",
+    access: "COMANDO",
+    team: "",
+    specialty: "Especialista/Distribuição de missão",
+    profile: "",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+    
   {
     code: "EXC-1249",
     name: "Max Park",
@@ -236,6 +253,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   },
 
+    {
+    code: "EXC-1288",
+    name: "Marcus Akello",
+    status: "ATIVO",
+    access: "ANALISTA",
+    team: "",
+    specialty: "Combate a curta distância",
+    profile: "Originário de Uganda",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+    
   {
     code: "EXC-2146",
     name: "Elora Avalon",
