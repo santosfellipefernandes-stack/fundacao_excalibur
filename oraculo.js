@@ -464,6 +464,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const agentModal = document.getElementById("agentModal");
   const closeAgentModal = document.getElementById("closeAgentModal");
 
+  let akaneTimers = [];
+  
   const overviewContent = contentArea.innerHTML;
 
   function setActiveButton(activeButton) {
@@ -585,6 +587,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 function openAkaneModal(agent) {
+  akaneTimers.forEach(clearTimeout);
+  akaneTimers = [];
   const currentAgentName = agentData.name || "AGENTE";
 
   agentModal.classList.add("akane-corrupted");
@@ -608,19 +612,24 @@ function openAkaneModal(agent) {
 
   agentModal.classList.add("active");
 
+  akaneTimers.push(
   setTimeout(function () {
     document.getElementById("modalAgentProfile").textContent =
       "O registro parece respirar por um instante. As letras tremem, como se alguém do outro lado estivesse tocando a superfície da tela.";
-  }, 1200);
+  }, 1200)
+  );
 
+  akaneTimers.push(
   setTimeout(function () {
     document.getElementById("modalAgentMissions").innerHTML = `
       <div class="log-line akane-whisper">Nenhuma missão encontrada.</div>
       <div class="log-line akane-whisper">Nenhuma testemunha confirmada.</div>
       <div class="log-line akane-whisper">Nenhum corpo recuperado.</div>
     `;
-  }, 2400);
+  }, 2400)
+  );
 
+  akaneTimers.push(
   setTimeout(function () {
     document.getElementById("modalAgentRestricted").innerHTML = `
       <div class="log-line akane-error">PRESENÇA DETECTADA</div>
@@ -628,16 +637,20 @@ function openAkaneModal(agent) {
         ${currentAgentName}, pare de procurar.
       </div>
     `;
-  }, 3900);
+  }, 3900)
+  );
 
+  akaneTimers.push(
   setTimeout(function () {
     document.getElementById("modalAgentRestricted").innerHTML = `
       <div class="log-line akane-whisper">
         Se um dia ela quiser ser encontrada, você saberá.
       </div>
     `;
-  }, 6200);
+  }, 6200)
+  );
 
+  akaneTimers.push(
   setTimeout(function () {
     document.getElementById("modalAgentProfile").textContent = agent.profile;
 
@@ -650,7 +663,8 @@ function openAkaneModal(agent) {
     `;
 
     document.body.classList.remove("akane-screen-glitch");
-  }, 8500);
+  }, 8500)
+  );
 }
   
   function openAgentModal(agent) {
@@ -787,13 +801,12 @@ function openAkaneModal(agent) {
       closeModal();
     }
   });
-  function closeAgentDossier() {
-  agentModal.classList.remove("active");
-  agentModal.classList.remove("akane-corrupted");
-  document.body.classList.remove("akane-screen-glitch");
-}
 
-function closeAgentDossier() {
+  function closeAgentDossier() {
+
+  akaneTimers.forEach(clearTimeout);
+  akaneTimers = [];
+
   agentModal.classList.remove("active");
   agentModal.classList.remove("akane-corrupted");
   document.body.classList.remove("akane-screen-glitch");
