@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   },
 
-   {
+  {
     code: "EXC-1214",
     name: "Gonzales ",
     status: "ATIVO",
@@ -253,7 +253,58 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   },
 
-    {
+  {
+    code: "EXC-1288",
+    name: "Marcus Akello",
+    status: "ATIVO",
+    access: "ANALISTA",
+    team: "",
+    specialty: "Combate a curta distância",
+    profile: "Originário de Uganda",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+
+  {
+    code: "EXC-1297",
+    name: "Jules",
+    status: "ATIVO",
+    access: "ANALISTA",
+    team: "",
+    specialty: "Ocultista de campo/Energia",
+    profile: "",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+
+  {
+    code: "EXC-1314",
+    name: "Jordan",
+    status: "ATIVO",
+    access: "ANALISTA",
+    team: "",
+    specialty: "Negociação",
+    profile: "",
+    missions: [],
+    restricted: {
+      access: "COMANDO",
+      evaluation: "",
+      notes: "",
+      observations: ""
+    }
+  },
+    
+   {
     code: "EXC-1288",
     name: "Marcus Akello",
     status: "ATIVO",
