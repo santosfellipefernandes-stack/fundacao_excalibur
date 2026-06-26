@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
   },
 
  {
-    code: "EXC-0314",
+    code: "EXC-0315",
     name: "Norberto 'Linguiça' Rogério",
     status: "ATIVO",
     access: "AGENTE",
