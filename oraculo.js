@@ -819,3 +819,4 @@ agentModal.addEventListener("click", function (event) {
     closeAgentDossier();
   }
 });
+});
