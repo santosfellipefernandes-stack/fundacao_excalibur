@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     specialty: "Infiltração Digital",
 
     profile:
-      "Entrou na Fundação Excalibur ainda jovem após ser salva por um agente da organização. Foi designada a uma equipe experimental formada por ele e se mostrou muito promissora, atuando no fornecimento de informações e apoio tecnológico. Perdeu os movimentos das pernas após um ataque de ocultista.",
+      "Lina é a filha de um delegado de polícia que costumava cooperar com um dos nossos agentes. Entrou na Fundação Excalibur com cerca de 17 anos após ser salva por este agente da organização. Foi designada a uma equipe experimental formada por ele e se mostrou muito promissora, atuando no fornecimento de informações e apoio tecnológico. Perdeu os movimentos das pernas após um ataque de ocultista perigoso.",
 
     missions: [],
 
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
  {
     code: "EXC-0314",
-    name: "Delphine Bell",
+    name: "Delphina Bell",
     status: "ATIVO",
     access: "AGENTE",
     team: "Gangue do Mistério",
@@ -164,6 +164,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     profile:
       "Delphine Bell, é uma jovem agente especialista em criar distrações (a donzela indefesa), negociação e combate marcial. Quando ainda estava na escola ela e seus grupo de amigos tinham um club de investigação local visando desmascarar o paranormal. Em uma de suas investigações o grupo se deparou com algo que não estavam preparados. Encontraram um cãozinho que estava fugindo de algo. Um dos integrantes pegou o cão e acabou descobrindo que ele era mais inteligente que o normal... Ele falava. Em meio a esta situação avistamentos de criaturas no local. Durante as investigações perceberam que não era só alguém espalhando rumores ou fantasiado, o que levou eles a correr risco quando a criatura foi para cima deles. Para sorte das crianças um agente da Excalibur estava no local e os ajudou. Após serem salvos, se recusaram a deixar o cão ser levado até a Excalibur. Hoje o grupo atua como uma das principais equipes de campo, conseguindo manter em segredo a existência do paranormal para a grande mídia.",
+
+    missions: [],
+
+    restricted: {
+      access: "COMANDO",
+      evaluation:
+        "",
+      notes: "",
+      observations: ""
+    }
+  },
+
+ {
+    code: "EXC-0314",
+    name: "Norberto 'Linguiça' Rogério",
+    status: "ATIVO",
+    access: "AGENTE",
+    team: "Gangue do Mistério",
+    specialty: "Ocultista",
+
+    profile:
+      "Norberto Rogério, ou Linguiça, como é mais conhecido por seus amigo é uma jovem agente que se dedicou em conhecimentos ocultistas, sempre acreditando que o paranormal existia, mas sem grandes envolvimentos até se tornar um agente. Quando ainda estava na escola ela e seus grupo de amigos tinham um club de investigação local visando desmascarar o paranormal. Em uma de suas investigações o grupo se deparou com algo que não estavam preparados. Encontraram um cãozinho que estava fugindo de algo. Um dos integrantes pegou o cão e acabou descobrindo que ele era mais inteligente que o normal... Ele falava. Em meio a esta situação avistamentos de criaturas no local. Durante as investigações perceberam que não era só alguém espalhando rumores ou fantasiado, o que levou eles a correr risco quando a criatura foi para cima deles. Para sorte das crianças um agente da Excalibur estava no local e os ajudou. Após serem salvos, se recusaram a deixar o cão ser levado até a Excalibur. Hoje o grupo atua como uma das principais equipes de campo, conseguindo manter em segredo a existência do paranormal para a grande mídia.",
 
     missions: [],
 
@@ -303,6 +325,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   },
 
+{
+  code: "EXC-4044",
+  name: "Akane Hayashi",
+  status: "████████",
+  access: "COMANDO",
+  team: "████████",
+  specialty: "Combate",
+
+  isLegend: true,
+
+  profile:
+    "A existência desta agente nunca foi oficialmente confirmada pela Fundação Excalibur. Rumores sobre sua atuação circulam entre agentes veteranos há anos, embora nenhum registro fotográfico ou testemunho formal tenha sido autenticado.",
+
+  missions: [
+    "████████",
+    "████████",
+    "████████"
+  ],
+
+  restricted: {
+    access: "DIRETORIA",
+    evaluation: "Registro indisponível.",
+    notes: "Arquivo mantido sob inconsistência permanente.",
+    observations: "Este registro não deveria aparecer para agentes de campo."
+  }
+},
+    
   {
     code: "EXC-7166",
     name: "Maurice M. Mahmoudi",
@@ -537,6 +586,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function openAgentModal(agent) {
 
+   if (agent.isLegend) {
+   openAkaneModal(agent);
+   return;
+  }
+    
   document.getElementById("modalAgentCode").textContent = agent.code;
   document.getElementById("modalAgentName").textContent = agent.name;
   document.getElementById("modalAgentStatus").textContent = agent.status;
