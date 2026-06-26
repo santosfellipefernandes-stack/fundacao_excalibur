@@ -115,12 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
     name: "Vilma Binkley",
     status: "ATIVO",
     access: "ANALISTA",
-    team: "Gangue do Slooby",
+    team: "Gangue do Mistério",
     specialty: "Investigação",
 
     profile:
-      "Quando ainda estava na escola ela e seus amigos se depararam com algo que nao estavam
-      preparados. O que estavam lidando não era simples mistérios, mas algo além. A situacão ficou pior quando descobriram um cão mais inteligente que o normal, uma cobaia de experimentos realizados por um laboratório. Isso os levou diretamente a Excalibur",
+      "Vilma Binkley é uma jovem uma agente especialista em investigação, capaz de enxergar coisas que os outros não vêem (menos quando seus óculos caem) Quando ainda estava na escola ela e seus grupo de amigos tinham um club de investigação local visando desmascarar o paranormal. Em uma de suas investigações o grupo se deparou com algo que não estavam preparados. Encontraram um cãozinho que estava fugindo de algo. Um dos integrantes pegou o cão e acabou descobrindo que ele era mais inteligente que o normal... Ele falava. Em meio a esta situação avistamentos de criaturas no local. Durante as investigações perceberam que não era só alguém espalhando rumores ou fantasiado, o que levou eles a correr risco quando a criatura foi para cima deles. Para sorte das crianças um agente da Excalibur estava no local e os ajudou. Após serem salvos, se recusaram a deixar o cão ser levado até a Excalibur. Hoje o grupo atua como uma das principais equipes de campo, conseguindo manter em segredo a existência do paranormal para a grande mídia.",
 
     missions: [],
 
@@ -133,6 +132,50 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   },
 
+ {
+    code: "EXC-0313",
+    name: "Freduardo James",
+    status: "ATIVO",
+    access: "AGENTE",
+    team: "Gangue do Mistério",
+    specialty: "Combatente/Armadilheiro",
+
+    profile:
+      "Freduardo James, ou apenas Fred para os mais próximos, é um jovem agente especialista em criar armadilhas (quase) infalíveis. Quando ainda estava na escola ela e seus grupo de amigos tinham um club de investigação local visando desmascarar o paranormal. Em uma de suas investigações o grupo se deparou com algo que não estavam preparados. Encontraram um cãozinho que estava fugindo de algo. Um dos integrantes pegou o cão e acabou descobrindo que ele era mais inteligente que o normal... Ele falava. Em meio a esta situação avistamentos de criaturas no local. Durante as investigações perceberam que não era só alguém espalhando rumores ou fantasiado, o que levou eles a correr risco quando a criatura foi para cima deles. Para sorte das crianças um agente da Excalibur estava no local e os ajudou. Após serem salvos, se recusaram a deixar o cão ser levado até a Excalibur. Hoje o grupo atua como uma das principais equipes de campo, conseguindo manter em segredo a existência do paranormal para a grande mídia.",
+
+    missions: [],
+
+    restricted: {
+      access: "COMANDO",
+      evaluation:
+        "",
+      notes: "",
+      observations: ""
+    }
+  },
+
+ {
+    code: "EXC-0314",
+    name: "Delphine Bell",
+    status: "ATIVO",
+    access: "AGENTE",
+    team: "Gangue do Mistério",
+    specialty: "Combatente/Armadilheiro",
+
+    profile:
+      "Delphine Bell, é uma jovem agente especialista em criar distrações (a donzela indefesa), negociação e combate marcial. Quando ainda estava na escola ela e seus grupo de amigos tinham um club de investigação local visando desmascarar o paranormal. Em uma de suas investigações o grupo se deparou com algo que não estavam preparados. Encontraram um cãozinho que estava fugindo de algo. Um dos integrantes pegou o cão e acabou descobrindo que ele era mais inteligente que o normal... Ele falava. Em meio a esta situação avistamentos de criaturas no local. Durante as investigações perceberam que não era só alguém espalhando rumores ou fantasiado, o que levou eles a correr risco quando a criatura foi para cima deles. Para sorte das crianças um agente da Excalibur estava no local e os ajudou. Após serem salvos, se recusaram a deixar o cão ser levado até a Excalibur. Hoje o grupo atua como uma das principais equipes de campo, conseguindo manter em segredo a existência do paranormal para a grande mídia.",
+
+    missions: [],
+
+    restricted: {
+      access: "COMANDO",
+      evaluation:
+        "",
+      notes: "",
+      observations: ""
+    }
+  },
+    
   {
     code: "EXC-1013",
     name: "Clive Müller",
