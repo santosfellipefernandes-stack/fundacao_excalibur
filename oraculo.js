@@ -840,7 +840,7 @@ function openCliveModal(agent) {
       <div class="log-line rgb-whisper">olá, clive.</div>
       <div class="log-line rgb-whisper">você ainda está conectado.</div>
     `;
-  }, 700);
+  }, 1100);
 
   setTimeout(function () {
     document.getElementById("modalAgentName").textContent = "CL1V3_MÜLL3R";
