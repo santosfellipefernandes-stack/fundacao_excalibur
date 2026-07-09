@@ -799,13 +799,12 @@ function openAkaneModal(agent) {
   }, 17000));
 }
   
-  function openAgentModal(agent) {
+function openNormalAgentModal(agent) {
+  agentModal.classList.remove("akane-corrupted");
+  agentModal.classList.remove("clive-rgb-glitch");
+  document.body.classList.remove("akane-screen-glitch");
+  document.body.classList.remove("rgb-screen-glitch");
 
-   if (agent.isLegend) {
-   openAkaneModal(agent);
-   return;
-  }
-    
   document.getElementById("modalAgentCode").textContent = agent.code;
   document.getElementById("modalAgentName").textContent = agent.name;
   document.getElementById("modalAgentStatus").textContent = agent.status;
@@ -816,62 +815,89 @@ function openAkaneModal(agent) {
   document.getElementById("modalAgentProfile").textContent =
     agent.profile || "Nenhum perfil registrado.";
 
-  const missionsContainer =
-    document.getElementById("modalAgentMissions");
+  renderList("modalAgentMissions", agent.missions, "Nenhuma missão registrada.");
 
-  missionsContainer.innerHTML = "";
-
-  if (agent.missions && agent.missions.length > 0) {
-
-    agent.missions.forEach(function (mission) {
-
-      const item = document.createElement("div");
-
-      item.className = "log-line";
-      item.textContent = mission;
-
-      missionsContainer.appendChild(item);
-
-    });
-
-  } else {
-
-    missionsContainer.innerHTML =
-      `<div class="log-line">Nenhuma missão registrada.</div>`;
-
-  }
-
-  const restrictedContainer =
-    document.getElementById("modalAgentRestricted");
-
-  restrictedContainer.innerHTML = `
-    <div class="log-line">
-      ████████████████████████████
-    </div>
-
-    <div class="log-line">
-      AUTORIZAÇÃO COMANDO NECESSÁRIA
-    </div>
+  document.getElementById("modalAgentRestricted").innerHTML = `
+    <div class="log-line">████████████████████████████</div>
+    <div class="log-line">AUTORIZAÇÃO COMANDO NECESSÁRIA</div>
   `;
 
   agentModal.classList.add("active");
 }
 
-  function closeModal() {
-    missionModal.classList.remove("active");
+function openCliveModal(agent) {
+  openNormalAgentModal(agent);
+
+  agentModal.classList.add("clive-rgb-glitch");
+  document.body.classList.add("rgb-screen-glitch");
+
+  const originalName = agent.name;
+  const originalSpecialty = agent.specialty;
+
+  setTimeout(function () {
+    document.getElementById("modalAgentRestricted").innerHTML = `
+      <div class="log-line rgb-error">INTERFERÊNCIA EXTERNA DETECTADA</div>
+      <div class="log-line rgb-whisper">olá, clive.</div>
+      <div class="log-line rgb-whisper">você ainda está conectado.</div>
+    `;
+  }, 700);
+
+  setTimeout(function () {
+    document.getElementById("modalAgentName").textContent = "CL1V3_MÜLL3R";
+    document.getElementById("modalAgentSpecialty").textContent = "TECNOLOGIA / RUÍDO DIGITAL";
+  }, 1300);
+
+  setTimeout(function () {
+    document.getElementById("modalAgentProfile").textContent =
+      "Arquivo comprometido. Sinal desconhecido tentando sobrescrever memória operacional.";
+  }, 1900);
+
+  setTimeout(function () {
+    document.getElementById("modalAgentName").textContent = originalName;
+    document.getElementById("modalAgentSpecialty").textContent = originalSpecialty;
+
+    document.getElementById("modalAgentProfile").textContent =
+      agent.profile || "Nenhum perfil registrado.";
+
+    document.getElementById("modalAgentRestricted").innerHTML = `
+      <div class="log-line">████████████████████████████</div>
+      <div class="log-line">AUTORIZAÇÃO COMANDO NECESSÁRIA</div>
+    `;
+
+    agentModal.classList.remove("clive-rgb-glitch");
+    document.body.classList.remove("rgb-screen-glitch");
+  }, 4200);
+}
+
+function openAgentModal(agent) {
+  if (agent.isLegend) {
+    openAkaneModal(agent);
+    return;
   }
 
-  overviewBtn.addEventListener("click", function () {
-    contentArea.innerHTML = overviewContent;
-    setActiveButton(overviewBtn);
-  });
+  if (agent.code === "EXC-1013") {
+    openCliveModal(agent);
+    return;
+  }
 
-  missionsBtn.addEventListener("click", function () {
-    setActiveButton(missionsBtn);
-    renderMissionsTable();
-  });
+  openNormalAgentModal(agent);
+}
 
-  agentsBtn.addEventListener("click", function () {
+function closeModal() {
+  missionModal.classList.remove("active");
+}
+
+overviewBtn.addEventListener("click", function () {
+  contentArea.innerHTML = overviewContent;
+  setActiveButton(overviewBtn);
+});
+
+missionsBtn.addEventListener("click", function () {
+  setActiveButton(missionsBtn);
+  renderMissionsTable();
+});
+
+agentsBtn.addEventListener("click", function () {
   setActiveButton(agentsBtn);
 
   const rows = agents.map(function (agent) {
@@ -908,40 +934,37 @@ function openAkaneModal(agent) {
       </table>
     </section>
   `;
-    document.querySelectorAll(".clickable-row").forEach(function (row) {
 
-  row.addEventListener("click", function () {
+  document.querySelectorAll(".clickable-row").forEach(function (row) {
+    row.addEventListener("click", function () {
+      const code = row.getAttribute("data-agent");
 
-    const code = row.getAttribute("data-agent");
+      const agent = agents.find(function (item) {
+        return item.code === code;
+      });
 
-    const agent = agents.find(function (item) {
-      return item.code === code;
+      openAgentModal(agent);
     });
-
-    openAgentModal(agent);
-
   });
-
-});
 });
 
-  
-  closeMissionModal.addEventListener("click", closeModal);
+closeMissionModal.addEventListener("click", closeModal);
 
-  missionModal.addEventListener("click", function (event) {
-    if (event.target === missionModal) {
-      closeModal();
-    }
-  });
+missionModal.addEventListener("click", function (event) {
+  if (event.target === missionModal) {
+    closeModal();
+  }
+});
 
-  function closeAgentDossier() {
-
+function closeAgentDossier() {
   akaneTimers.forEach(clearTimeout);
   akaneTimers = [];
 
   agentModal.classList.remove("active");
   agentModal.classList.remove("akane-corrupted");
+  agentModal.classList.remove("clive-rgb-glitch");
   document.body.classList.remove("akane-screen-glitch");
+  document.body.classList.remove("rgb-screen-glitch");
 }
 
 closeAgentModal.addEventListener("click", closeAgentDossier);
