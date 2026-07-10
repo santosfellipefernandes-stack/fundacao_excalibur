@@ -760,19 +760,32 @@ h1 {
 }
 
 .rgb-error {
-  color: #ff3df2;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+
   text-shadow:
-    0 0 8px rgba(255, 0, 160, 0.9),
-    2px 0 rgba(0, 255, 255, 0.8),
-    -2px 0 rgba(255, 255, 0, 0.8);
+    -2px 0 rgba(255, 0, 120, 0.85),
+    2px 0 rgba(0, 255, 255, 0.85),
+    0 0 10px rgba(255, 255, 255, 0.45);
 }
 
 .rgb-whisper {
-  color: #00f5ff;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+
   text-shadow:
-    0 0 8px rgba(0, 255, 255, 0.9),
-    2px 0 rgba(255, 0, 120, 0.8),
-    -2px 0 rgba(255, 255, 0, 0.7);
+    -2px 0 rgba(255, 0, 120, 0.75),
+    2px 0 rgba(0, 255, 255, 0.75),
+    0 0 8px rgba(255, 255, 255, 0.35);
 }
 
 @keyframes rgbScreenGlitch {
