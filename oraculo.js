@@ -831,42 +831,43 @@ function openCliveModal(agent) {
   agentModal.classList.add("clive-rgb-glitch");
   document.body.classList.add("rgb-screen-glitch");
 
+  const modalWindow = agentModal.querySelector(".mission-modal");
+
+  const intrusion = document.createElement("div");
+  intrusion.className = "rgb-intrusion";
+  intrusion.innerHTML = `
+    <div class="rgb-intrusion-content">
+      <div class="rgb-error">INTERFERÊNCIA EXTERNA DETECTADA</div>
+      <div class="rgb-whisper">Olá, Clive.</div>
+      <div class="rgb-whisper">Você ainda está conectado.</div>
+    </div>
+  `;
+
+  modalWindow.appendChild(intrusion);
+
   const originalName = agent.name;
   const originalSpecialty = agent.specialty;
 
   setTimeout(function () {
-    document.getElementById("modalAgentRestricted").innerHTML = `
-      <div class="log-line rgb-error">INTERFERÊNCIA EXTERNA DETECTADA</div>
-      <div class="log-line rgb-whisper">olá, clive.</div>
-      <div class="log-line rgb-whisper">você ainda está conectado.</div>
-    `;
-  }, 1100);
-
-  setTimeout(function () {
     document.getElementById("modalAgentName").textContent = "CL1V3_MÜLL3R";
-    document.getElementById("modalAgentSpecialty").textContent = "TECNOLOGIA / RUÍDO DIGITAL";
-  }, 1300);
-
-  setTimeout(function () {
-    document.getElementById("modalAgentProfile").textContent =
-      "Arquivo comprometido. Sinal desconhecido tentando sobrescrever memória operacional.";
-  }, 1900);
+    document.getElementById("modalAgentSpecialty").textContent =
+      "TECNOLOGIA / RUÍDO DIGITAL";
+  }, 900);
 
   setTimeout(function () {
     document.getElementById("modalAgentName").textContent = originalName;
-    document.getElementById("modalAgentSpecialty").textContent = originalSpecialty;
+    document.getElementById("modalAgentSpecialty").textContent =
+      originalSpecialty;
 
-    document.getElementById("modalAgentProfile").textContent =
-      agent.profile || "Nenhum perfil registrado.";
+    intrusion.classList.add("rgb-intrusion-fade");
+  }, 3800);
 
-    document.getElementById("modalAgentRestricted").innerHTML = `
-      <div class="log-line">████████████████████████████</div>
-      <div class="log-line">AUTORIZAÇÃO COMANDO NECESSÁRIA</div>
-    `;
+  setTimeout(function () {
+    intrusion.remove();
 
     agentModal.classList.remove("clive-rgb-glitch");
     document.body.classList.remove("rgb-screen-glitch");
-  }, 4200);
+  }, 4400);
 }
 
 function openAgentModal(agent) {
