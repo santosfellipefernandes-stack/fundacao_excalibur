@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     restricted: {
       access: "COMANDO",
       evaluation:
-        "",
+        "Capacidade analítica acima da média, identifica padrões que passam despercebidos — ironicamente, às vezes negligencia o óbvio à sua frente. Recomenda-se pareamento com agentes de reação rápida.",
       notes: "",
       observations: ""
     }
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
     restricted: {
       access: "COMANDO",
       evaluation:
-        "",
+        "Talento incomum para engenharia improvisada de armadilhas. Tende a subestimar o tempo de reação de entidades hostis, exigindo ajustes de última hora — sem baixas registradas até o momento.",
       notes: "",
       observations: ""
     }
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
     restricted: {
       access: "COMANDO",
       evaluation:
-        "",
+        "Excelente em negociação e desvio de atenção, assumindo voluntariamente o papel de isca. Monitoramento psicológico recomendado devido à disposição recorrente de se colocar em risco.",
       notes: "",
       observations: ""
     }
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
     restricted: {
       access: "COMANDO",
       evaluation:
-        "",
+        "Conhecimento ocultista sólido e autodidata. Ainda hesita em confronto direto, preferindo contenção à distância.",
       notes: "",
       observations: ""
     }
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Habilidade técnica de altíssimo nível sob pressão. Instabilidade emocional recorrente ligada ao evento de recrutamento — acompanhamento psicológico contínuo recomendado.",
       notes: "",
       observations: ""
     }
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
     missions: [],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Responsável pela distribuição de missões. Avaliação administrativa positiva, sem atuação de campo registrada.",
       notes: "",
       observations: ""
     }
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
     missions: [],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Pesquisa ocultista meticulosa, perfil reservado, baixo envolvimento em campo direto.",
       notes: "",
       observations: ""
     }
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
     missions: [],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Controle de energia ocultista dentro do esperado, sem intercorrências.",
       notes: "",
       observations: ""
     }
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
     missions: [],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Negociação satisfatória em cenários de baixo risco, ainda não testado sob alta tensão.",
       notes: "",
       observations: ""
     }
@@ -338,7 +338,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Alto engajamento operacional motivado pela busca por familiares desaparecidos — levanta preocupação quanto a decisões guiadas por interesse pessoal em detrimento do protocolo.",
       notes: "",
       observations: ""
     }
@@ -362,7 +362,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Precisão clínica em campo, resultado da formação forense. Discrição exemplar em cenários emocionalmente desgastantes.",
       notes: "",
       observations: ""
     }
@@ -384,7 +384,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Registro encerrado. Dedicação investigativa consistente com seu histórico de jornalista. Cumprimento do dever até a perda em campo.",
       notes: "",
       observations: ""
     }
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Registro encerrado. Transição de histórico criminoso para conduta operacional exemplar. Cumprimento do dever até a perda em campo.",
       notes: "",
       observations: ""
     }
@@ -452,7 +452,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Desempenho tático consistente, histórico limpo. Pouca informação disponível sobre a vida pré-recrutamento.",
       notes: "",
       observations: ""
     }
@@ -473,7 +473,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Atuação ocultista sólida, frequentemente destacado em contenção direta. Ficha pessoal incompleta — reavaliação sugerida.",
       notes: "",
       observations: ""
     }
@@ -493,7 +493,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Sob observação ativa da diretoria. Comportamento errático registrado após a Sea of Madness — acesso a arquivos sensíveis restrito até conclusão da análise.",
       notes: "",
       observations: ""
     }
@@ -510,7 +510,7 @@ document.addEventListener("DOMContentLoaded", function () {
     missions: [],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Especialização rara em ocultismo aplicado à expressão artística. Dado o perfil da Vernissage, recomenda-se avaliar possível conflito de interesse ou exposição involuntária.",
       notes: "",
       observations: ""
     }
@@ -530,7 +530,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "",
+      evaluation: "Operações de campo eficientes, nenhuma irregularidade registrada.",
       notes: "",
       observations: ""
     }
