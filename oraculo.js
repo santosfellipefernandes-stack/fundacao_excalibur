@@ -833,6 +833,8 @@ function openCliveModal(agent) {
 
   const modalWindow = agentModal.querySelector(".mission-modal");
 
+  modalWindow.scrollTop = 0;
+
   const intrusion = document.createElement("div");
   intrusion.className = "rgb-intrusion";
   intrusion.innerHTML = `
@@ -843,7 +845,7 @@ function openCliveModal(agent) {
     </div>
   `;
 
-  modalWindow.appendChild(intrusion);
+  agentModal.appendChild(intrusion);
 
   const originalName = agent.name;
   const originalSpecialty = agent.specialty;
