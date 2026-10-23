@@ -87,6 +87,68 @@ document.addEventListener("DOMContentLoaded", function () {
       clickable: false
     }
   ];
+
+  const incidents = [
+    {
+      code: "EXC-INC-0001",
+      title: "Residência Abandonada, Minas Gerais",
+      status: "ENCERRADO",
+      description: "Primeiro relato de atividade confirmada na região.",
+      archived: true
+    },
+    {
+      code: "EXC-INC-0002",
+      title: "Avistamentos na Costa Leste",
+      status: "ESCALONADO",
+      description: "Relatos que originaram a operação Maré Alta.",
+      archived: true
+    },
+    {
+      code: "EXC-INC-0003",
+      title: "Colapsos Emocionais Associados a Pigmento",
+      status: "ESCALONADO",
+      description: "Relatos que deram origem à operação Vernissage.",
+      archived: true
+    },
+    {
+      code: "EXC-INC-0004",
+      title: "Transmissões Anômalas em Rádio Desativada",
+      status: "ENCERRADO",
+      description: "Rastreado a interferência atmosférica; sem componente paranormal.",
+      archived: true
+    },
+    {
+      code: "EXC-INC-0005",
+      title: "Mortandade Animal em Propriedade Rural",
+      status: "EM ANÁLISE",
+      description: "Causa ainda não determinada."
+    },
+    {
+      code: "EXC-INC-0006",
+      title: "Figura Humanoide em Linha de Metrô",
+      status: "AGUARDANDO CLASSIFICAÇÃO",
+      description: "Sem avaliação técnica realizada até o momento."
+    },
+    {
+      code: "EXC-INC-0007",
+      title: "Objeto Não Identificado em Naufrágio",
+      status: "AGUARDANDO CLASSIFICAÇÃO",
+      description: "Sem avaliação técnica realizada até o momento."
+    },
+    {
+      code: "EXC-INC-0008",
+      title: "Interferência Eletromagnética em Torre de Transmissão",
+      status: "CONTIDO",
+      description: "Monitoramento ativo, sem expansão registrada."
+    },
+    {
+      code: "EXC-INC-0009",
+      title: "Movimentação Suspeita de Empresa de Fachada",
+      status: "EM MONITORAMENTO",
+      description: "Possível ligação com rede de interesses ainda não confirmada."
+    }
+  ];
+
   const agents = [
   {
     code: "EXC-0204",
@@ -126,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
     restricted: {
       access: "COMANDO",
       evaluation:
-        "Capacidade analítica acima da média, identifica padrões que passam despercebidos — ironicamente, às vezes negligencia o óbvio à sua frente. Recomenda-se pareamento com agentes de reação rápida.",
+        "",
       notes: "",
       observations: ""
     }
@@ -148,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
     restricted: {
       access: "COMANDO",
       evaluation:
-        "Talento incomum para engenharia improvisada de armadilhas. Tende a subestimar o tempo de reação de entidades hostis, exigindo ajustes de última hora — sem baixas registradas até o momento.",
+        "",
       notes: "",
       observations: ""
     }
@@ -170,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
     restricted: {
       access: "COMANDO",
       evaluation:
-        "Excelente em negociação e desvio de atenção, assumindo voluntariamente o papel de isca. Monitoramento psicológico recomendado devido à disposição recorrente de se colocar em risco.",
+        "",
       notes: "",
       observations: ""
     }
@@ -192,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
     restricted: {
       access: "COMANDO",
       evaluation:
-        "Conhecimento ocultista sólido e autodidata. Ainda hesita em confronto direto, preferindo contenção à distância.",
+        "",
       notes: "",
       observations: ""
     }
@@ -213,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "Habilidade técnica de altíssimo nível sob pressão. Instabilidade emocional recorrente ligada ao evento de recrutamento — acompanhamento psicológico contínuo recomendado.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -230,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
     missions: [],
     restricted: {
       access: "COMANDO",
-      evaluation: "Responsável pela distribuição de missões. Avaliação administrativa positiva, sem atuação de campo registrada.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -247,7 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
     missions: [],
     restricted: {
       access: "COMANDO",
-      evaluation: "Pesquisa ocultista meticulosa, perfil reservado, baixo envolvimento em campo direto.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -281,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
     missions: [],
     restricted: {
       access: "COMANDO",
-      evaluation: "Controle de energia ocultista dentro do esperado, sem intercorrências.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -298,7 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
     missions: [],
     restricted: {
       access: "COMANDO",
-      evaluation: "Negociação satisfatória em cenários de baixo risco, ainda não testado sob alta tensão.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -338,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "Alto engajamento operacional motivado pela busca por familiares desaparecidos — levanta preocupação quanto a decisões guiadas por interesse pessoal em detrimento do protocolo.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -362,7 +424,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "Precisão clínica em campo, resultado da formação forense. Discrição exemplar em cenários emocionalmente desgastantes.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -384,7 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "Registro encerrado. Dedicação investigativa consistente com seu histórico de jornalista. Cumprimento do dever até a perda em campo.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -404,7 +466,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "Registro encerrado. Transição de histórico criminoso para conduta operacional exemplar. Cumprimento do dever até a perda em campo.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -452,7 +514,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "Desempenho tático consistente, histórico limpo. Pouca informação disponível sobre a vida pré-recrutamento.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -473,7 +535,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "Atuação ocultista sólida, frequentemente destacado em contenção direta. Ficha pessoal incompleta — reavaliação sugerida.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -493,7 +555,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "Sob observação ativa da diretoria. Comportamento errático registrado após a Sea of Madness — acesso a arquivos sensíveis restrito até conclusão da análise.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -510,7 +572,7 @@ document.addEventListener("DOMContentLoaded", function () {
     missions: [],
     restricted: {
       access: "COMANDO",
-      evaluation: "Especialização rara em ocultismo aplicado à expressão artística. Dado o perfil da Vernissage, recomenda-se avaliar possível conflito de interesse ou exposição involuntária.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -530,7 +592,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     restricted: {
       access: "COMANDO",
-      evaluation: "Operações de campo eficientes, nenhuma irregularidade registrada.",
+      evaluation: "",
       notes: "",
       observations: ""
     }
@@ -540,6 +602,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const contentArea = document.getElementById("content-area");
   const overviewBtn = document.getElementById("overviewBtn");
   const missionsBtn = document.getElementById("missionsBtn");
+  const incidentsBtn = document.getElementById("incidentsBtn");
   const agentsBtn = document.getElementById("agentsBtn");
   const menuButtons = document.querySelectorAll(".menu-button");
 
@@ -609,6 +672,32 @@ document.addEventListener("DOMContentLoaded", function () {
         openMissionModal(mission);
       });
     });
+  }
+
+  function renderIncidentsList() {
+    const rows = incidents.map(function (incident) {
+      const archivedClass = incident.archived ? " archived" : "";
+
+      return `
+        <div class="incident-item${archivedClass}">
+          <strong>${incident.code} — ${incident.title}</strong>
+          <p>${incident.status} · ${incident.description}</p>
+        </div>
+      `;
+    }).join("");
+
+    contentArea.innerHTML = `
+      <section class="database-panel">
+        <div class="panel-header">
+          <h2>INCIDENTES REGISTRADOS</h2>
+          <span>EXCALIBUR OCCURRENCE LOG</span>
+        </div>
+
+        <div class="incident-list">
+          ${rows}
+        </div>
+      </section>
+    `;
   }
 
   function renderList(containerId, items, emptyText) {
@@ -833,8 +922,6 @@ function openCliveModal(agent) {
 
   const modalWindow = agentModal.querySelector(".mission-modal");
 
-  modalWindow.scrollTop = 0;
-
   const intrusion = document.createElement("div");
   intrusion.className = "rgb-intrusion";
   intrusion.innerHTML = `
@@ -845,7 +932,7 @@ function openCliveModal(agent) {
     </div>
   `;
 
-  agentModal.appendChild(intrusion);
+  modalWindow.appendChild(intrusion);
 
   const originalName = agent.name;
   const originalSpecialty = agent.specialty;
@@ -898,6 +985,11 @@ overviewBtn.addEventListener("click", function () {
 missionsBtn.addEventListener("click", function () {
   setActiveButton(missionsBtn);
   renderMissionsTable();
+});
+
+incidentsBtn.addEventListener("click", function () {
+  setActiveButton(incidentsBtn);
+  renderIncidentsList();
 });
 
 agentsBtn.addEventListener("click", function () {
