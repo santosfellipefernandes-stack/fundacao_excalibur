@@ -253,6 +253,149 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   ];
 
+  const artifacts = [
+    {
+      code: "EXC-ART-0001",
+      title: "Pigmento Paranormal (Lote Chroma)",
+      category: "EVIDÊNCIA",
+      status: "EM CUSTÓDIA",
+      risk: "CRÍTICO",
+      custody: "Cofre de Contenção, Base Taj Mahal",
+      summary: "Tinta de origem paranormal distribuída por empresa de fachada ligada à Iluminatti. O contato prolongado induz colapsos emocionais e alimenta a entidade conhecida como Corpo do Sentir. Amostras recolhidas permanecem sob análise.",
+      linked: "EXC-OP-0741"
+    },
+    {
+      code: "EXC-ART-0002",
+      title: "Sigilo Ritual Compartilhado",
+      category: "EVIDÊNCIA",
+      status: "EM ANÁLISE",
+      risk: "ALTO",
+      custody: "Arquivo Central (registro fotográfico)",
+      summary: "Marca ritual recorrente identificada em cenas de operações distintas, sem relação aparente entre si. A repetição do padrão sugere uma assinatura comum e uma origem coordenada. Significado ainda não determinado.",
+      linked: ""
+    },
+    {
+      code: "EXC-ART-0003",
+      title: "Obras Pigmentadas da Galeria",
+      category: "EVIDÊNCIA",
+      status: "APREENDIDO",
+      risk: "ALTO",
+      custody: "Depósito Seguro, San Francisco",
+      summary: "Conjunto de telas produzidas com o pigmento paranormal e expostas ao público. Observadores relataram reações emocionais intensas e, em alguns casos, perda de controle. Mantidas isoladas e sem acesso civil.",
+      linked: "EXC-DOS-0007"
+    },
+    {
+      code: "EXC-ART-0004",
+      title: "Registros de Importação da Chroma",
+      category: "EVIDÊNCIA",
+      status: "EM ANÁLISE",
+      risk: "MODERADO",
+      custody: "Setor de Inteligência",
+      summary: "Documentação contábil e de embarque da empresa de fachada, recuperada durante a investigação. Indica rotas de distribuição do pigmento e possíveis intermediários. Autenticidade parcialmente confirmada.",
+      linked: "EXC-DOS-0009"
+    },
+    {
+      code: "EXC-ART-0005",
+      title: "Fragmento de Excalibur",
+      category: "RELÍQUIA",
+      status: "DESAPARECIDO",
+      risk: "INDETERMINADO",
+      custody: "Paradeiro desconhecido",
+      summary: "Fragmento atribuído à lâmina que deu origem ao nome da Fundação. Seu último registro de custódia data de décadas atrás. A confirmação de autenticidade nunca foi concluída.",
+      linked: ""
+    },
+    {
+      code: "EXC-ART-0006",
+      title: "Fragmento da Távola Redonda",
+      category: "RELÍQUIA",
+      status: "EM CUSTÓDIA",
+      risk: "MODERADO",
+      custody: "Arquivo Histórico da Fundação",
+      summary: "Pedaço de madeira escurecida associado à mesa dos cavaleiros originais. Exibe leve ressonância com a Membrana quando em contato com agentes de nível elevado. Acesso restrito.",
+      linked: ""
+    },
+    {
+      code: "EXC-ART-0007",
+      title: "Códice de Merlin",
+      category: "RELÍQUIA",
+      status: "RESTRITO",
+      risk: "ALTO",
+      custody: "Índice Merlin (acesso por autorização)",
+      summary: "Manuscrito que serviu de base para o sistema de catalogação paranormal da Fundação. Partes do texto permanecem ilegíveis para qualquer leitor. Consulta integral é limitada ao alto escalão.",
+      linked: ""
+    },
+    {
+      code: "EXC-ART-0008",
+      title: "Cálice de Avalon",
+      category: "RELÍQUIA",
+      status: "EM CUSTÓDIA",
+      risk: "ALTO",
+      custody: "Câmara Selada, localização não divulgada",
+      summary: "Relíquia de origem lendária cuja natureza exata não foi estabelecida. Registros antigos descrevem efeitos imprevisíveis sobre quem o manuseia. Nenhum teste recente foi autorizado.",
+      linked: ""
+    },
+    {
+      code: "EXC-ART-0009",
+      title: "Manto de Morgana",
+      category: "RELÍQUIA",
+      status: "NÃO LOCALIZADO",
+      risk: "INDETERMINADO",
+      custody: "Sem registro atual",
+      summary: "Peça mencionada em documentos da primeira geração da Fundação. Teria a capacidade de ocultar seu portador de percepção sobrenatural. Existência jamais confirmada em campo.",
+      linked: ""
+    },
+    {
+      code: "EXC-ART-0010",
+      title: "Sensor de Flutuação de Membrana",
+      category: "EQUIPAMENTO",
+      status: "EM SERVIÇO",
+      risk: "BAIXO",
+      custody: "Equipamento padrão de campo",
+      summary: "Dispositivo portátil que mede variações na Membrana em tempo real. Utilizado para localizar pontos de atividade paranormal antes do contato. Leituras sofrem interferência próximas a rituais ativos.",
+      linked: ""
+    },
+    {
+      code: "EXC-ART-0011",
+      title: "Selo de Contenção Tipo-II",
+      category: "EQUIPAMENTO",
+      status: "EM SERVIÇO",
+      risk: "BAIXO",
+      custody: "Equipamento padrão de campo",
+      summary: "Lacre ritualístico aplicado a objetos e locais após a neutralização de uma ameaça. Impede a propagação residual por tempo limitado. Exige renovação periódica por equipe qualificada.",
+      linked: ""
+    },
+    {
+      code: "EXC-ART-0012",
+      title: "Terminal Portátil Avalon",
+      category: "EQUIPAMENTO",
+      status: "EM SERVIÇO",
+      risk: "BAIXO",
+      custody: "Distribuído por agente",
+      summary: "Terminal criptografado que conecta o agente em campo à Rede Avalon e ao Arquivo Central. Registra automaticamente observações e imagens. Possui apagamento remoto em caso de perda.",
+      linked: ""
+    },
+    {
+      code: "EXC-ART-0013",
+      title: "Kit de Coleta Ectoplasmática",
+      category: "EQUIPAMENTO",
+      status: "EM SERVIÇO",
+      risk: "MODERADO",
+      custody: "Equipes de recolhimento",
+      summary: "Conjunto de recipientes e reagentes destinado à coleta segura de resíduos paranormais. Amostras devem ser seladas em até quinze minutos. Manuseio incorreto pode causar contaminação.",
+      linked: ""
+    },
+    {
+      code: "EXC-ART-0014",
+      title: "Lanterna de Contenção Espectral",
+      category: "EQUIPAMENTO",
+      status: "EM TESTE",
+      risk: "MODERADO",
+      custody: "Divisão de Pesquisa e Desenvolvimento",
+      summary: "Protótipo que emite luz calibrada capaz de limitar a movimentação de entidades menores. Ainda em avaliação quanto à segurança do operador. Uso em campo depende de autorização.",
+      linked: ""
+    }
+  ];
+
   const agents = [
   {
     code: "EXC-0204",
@@ -708,6 +851,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const missionsBtn = document.getElementById("missionsBtn");
   const incidentsBtn = document.getElementById("incidentsBtn");
   const dossiersBtn = document.getElementById("dossiersBtn");
+  const artifactsBtn = document.getElementById("artifactsBtn");
   const agentsBtn = document.getElementById("agentsBtn");
   const menuButtons = document.querySelectorAll(".menu-button");
 
@@ -720,11 +864,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const dossierModal = document.getElementById("dossierModal");
   const closeDossierModal = document.getElementById("closeDossierModal");
 
+  const artifactModal = document.getElementById("artifactModal");
+  const closeArtifactModal = document.getElementById("closeArtifactModal");
+
   const agentModal = document.getElementById("agentModal");
   const closeAgentModal = document.getElementById("closeAgentModal");
 
   let akaneTimers = [];
   let activeDossierType = "ENTIDADE";
+  let activeArtifactCategory = "EVIDÊNCIA";
+  let activeArtifactPage = 1;
+  const artifactsPerPage = 4;
   
   const overviewContent = contentArea.innerHTML;
 
@@ -942,6 +1092,118 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function closeDossierDetails() {
     dossierModal.classList.remove("active");
+  }
+
+  function renderArtifactsSection() {
+    const categories = [
+      { key: "EVIDÊNCIA", label: "EVIDÊNCIAS" },
+      { key: "RELÍQUIA", label: "RELÍQUIAS" },
+      { key: "EQUIPAMENTO", label: "EQUIPAMENTOS" }
+    ];
+
+    const tabs = categories.map(function (c) {
+      const activeClass = c.key === activeArtifactCategory ? " active" : "";
+      return `<button class="subtab-button${activeClass}" data-category="${c.key}">${c.label}</button>`;
+    }).join("");
+
+    const filtered = artifacts.filter(function (artifact) {
+      return artifact.category === activeArtifactCategory;
+    });
+
+    const totalPages = Math.max(1, Math.ceil(filtered.length / artifactsPerPage));
+    if (activeArtifactPage > totalPages) { activeArtifactPage = totalPages; }
+    if (activeArtifactPage < 1) { activeArtifactPage = 1; }
+
+    const start = (activeArtifactPage - 1) * artifactsPerPage;
+    const pageItems = filtered.slice(start, start + artifactsPerPage);
+
+    const rows = pageItems.map(function (artifact) {
+      return `
+        <tr class="clickable-row" data-code="${artifact.code}">
+          <td>${artifact.code}</td>
+          <td>${artifact.title}</td>
+          <td>${artifact.risk}</td>
+          <td>${artifact.status}</td>
+        </tr>
+      `;
+    }).join("");
+
+    const pagination = totalPages > 1 ? `
+      <div class="pagination-row">
+        <button class="subtab-button page-prev"${activeArtifactPage === 1 ? " disabled" : ""}>&lt; ANTERIOR</button>
+        <span class="page-indicator">PÁGINA ${activeArtifactPage} / ${totalPages}</span>
+        <button class="subtab-button page-next"${activeArtifactPage === totalPages ? " disabled" : ""}>PRÓXIMA &gt;</button>
+      </div>
+    ` : "";
+
+    contentArea.innerHTML = `
+      <section class="database-panel">
+        <div class="panel-header">
+          <h2>ARTEFATOS CATALOGADOS</h2>
+          <span>EXCALIBUR ARTIFACT REGISTRY</span>
+        </div>
+        <div class="subtab-row">
+          ${tabs}
+        </div>
+        <div class="table-scroll">
+          <table class="mission-table">
+            <thead><tr><th>CÓDIGO</th><th>DESIGNAÇÃO</th><th>RISCO</th><th>STATUS</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+        ${pagination}
+      </section>
+    `;
+
+    document.querySelectorAll(".subtab-button[data-category]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        activeArtifactCategory = button.getAttribute("data-category");
+        activeArtifactPage = 1;
+        renderArtifactsSection();
+      });
+    });
+
+    const prevBtn = document.querySelector(".page-prev");
+    const nextBtn = document.querySelector(".page-next");
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        activeArtifactPage -= 1;
+        renderArtifactsSection();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        activeArtifactPage += 1;
+        renderArtifactsSection();
+      });
+    }
+
+    document.querySelectorAll(".clickable-row").forEach(function (row) {
+      row.addEventListener("click", function () {
+        const code = row.getAttribute("data-code");
+        const artifact = artifacts.find(function (item) { return item.code === code; });
+        if (artifact) { openArtifactModal(artifact); }
+      });
+    });
+  }
+
+  function openArtifactModal(artifact) {
+    document.getElementById("modalArtifactCode").textContent = artifact.code;
+    document.getElementById("modalArtifactName").textContent = artifact.title;
+    document.getElementById("modalArtifactCategory").textContent = artifact.category;
+    document.getElementById("modalArtifactStatus").textContent = artifact.status;
+    document.getElementById("modalArtifactRisk").textContent = artifact.risk || "INDETERMINADO";
+    document.getElementById("modalArtifactCustody").textContent = artifact.custody || "NÃO DISPONÍVEL";
+    document.getElementById("modalArtifactSummary").textContent = artifact.summary || "Sem resumo disponível.";
+    const linkedItems = artifact.linked ? [artifact.linked] : [];
+    renderList("modalArtifactLinked", linkedItems, "Nenhum vínculo registrado.");
+    artifactModal.classList.add("active");
+  }
+
+  function closeArtifactDetails() {
+    artifactModal.classList.remove("active");
   }
 
   function renderList(containerId, items, emptyText) {
@@ -1242,6 +1504,13 @@ dossiersBtn.addEventListener("click", function () {
   renderDossiersSection();
 });
 
+artifactsBtn.addEventListener("click", function () {
+  setActiveButton(artifactsBtn);
+  activeArtifactCategory = "EVIDÊNCIA";
+  activeArtifactPage = 1;
+  renderArtifactsSection();
+});
+
 agentsBtn.addEventListener("click", function () {
   setActiveButton(agentsBtn);
 
@@ -1314,6 +1583,14 @@ closeDossierModal.addEventListener("click", closeDossierDetails);
 dossierModal.addEventListener("click", function (event) {
   if (event.target === dossierModal) {
     closeDossierDetails();
+  }
+});
+
+closeArtifactModal.addEventListener("click", closeArtifactDetails);
+
+artifactModal.addEventListener("click", function (event) {
+  if (event.target === artifactModal) {
+    closeArtifactDetails();
   }
 });
 
