@@ -168,6 +168,36 @@
 
     </div>
   </div>
+
+  <div class="modal-overlay" id="incidentModal">
+    <div class="mission-modal">
+
+      <div class="modal-header">
+        <div>
+          <p class="section-kicker" id="modalIncidentCode">EXC-INC-0000</p>
+          <h2 id="modalIncidentName">INCIDENTE</h2>
+        </div>
+
+        <button class="modal-close" id="closeIncidentModal">FECHAR</button>
+      </div>
+
+      <div class="modal-content">
+        <p><strong>Status:</strong> <span id="modalIncidentStatus"></span></p>
+        <p><strong>Classificação de Ameaça:</strong> <span id="modalIncidentThreat"></span></p>
+        <p><strong>Local:</strong> <span id="modalIncidentLocation"></span></p>
+        <p><strong>Data de Registro:</strong> <span id="modalIncidentDate"></span></p>
+
+        <hr>
+
+        <h3>Resumo</h3>
+        <p id="modalIncidentSummary"></p>
+
+        <h3>Operação Vinculada</h3>
+        <div id="modalIncidentRelated"></div>
+      </div>
+
+    </div>
+  </div>
 <div class="modal-overlay" id="agentModal">
   <div class="mission-modal agent-dossier">
 
