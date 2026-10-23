@@ -32,7 +32,7 @@
         <button class="menu-button" id="missionsBtn">MISSÕES</button>
         <button class="menu-button" id="incidentsBtn">INCIDENTES</button>
         <button class="menu-button" id="dossiersBtn">DOSSIÊS</button>
-        <button class="menu-button">ARTEFATOS</button>
+        <button class="menu-button" id="artifactsBtn">ARTEFATOS</button>
         <button class="menu-button" id="agentsBtn">AGENTES</button>
         <button class="menu-button">RELATÓRIOS</button>
         <button class="menu-button">ARQUIVO HISTÓRICO</button>
@@ -222,6 +222,35 @@
 
         <h3>Vínculo Registrado</h3>
         <div id="modalDossierLinked"></div>
+      </div>
+
+    </div>
+  </div>
+    <div class="modal-overlay" id="artifactModal">
+    <div class="mission-modal">
+
+      <div class="modal-header">
+        <div>
+          <p class="section-kicker" id="modalArtifactCode">EXC-ART-0000</p>
+          <h2 id="modalArtifactName">ARTEFATO</h2>
+        </div>
+
+        <button class="modal-close" id="closeArtifactModal">FECHAR</button>
+      </div>
+
+      <div class="modal-content">
+        <p><strong>Categoria:</strong> <span id="modalArtifactCategory"></span></p>
+        <p><strong>Status:</strong> <span id="modalArtifactStatus"></span></p>
+        <p><strong>Classificação de Risco:</strong> <span id="modalArtifactRisk"></span></p>
+        <p><strong>Custódia:</strong> <span id="modalArtifactCustody"></span></p>
+
+        <hr>
+
+        <h3>Resumo</h3>
+        <p id="modalArtifactSummary"></p>
+
+        <h3>Vínculo Registrado</h3>
+        <div id="modalArtifactLinked"></div>
       </div>
 
     </div>
