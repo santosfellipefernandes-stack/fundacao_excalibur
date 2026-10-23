@@ -178,6 +178,81 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   ];
 
+  const dossiers = [
+    {
+      code: "EXC-DOS-0001",
+      title: "Entidade Residencial",
+      type: "ENTIDADE",
+      status: "NEUTRALIZADA",
+      summary: "Entidade não catalogada que ocupava uma residência desocupada em Minas Gerais, manifestando-se através de ruídos e vultos recorrentes. Neutralizada após intervenção de campo.",
+      linked: "EXC-INC-0001"
+    },
+    {
+      code: "EXC-DOS-0002",
+      title: "Criatura Litorânea",
+      type: "ENTIDADE",
+      status: "NEUTRALIZADA",
+      summary: "Criatura marinha de grande porte com comportamento predatório anômalo, avistada ao longo do litoral da Flórida. Contida ao fim da operação Maré Alta.",
+      linked: "EXC-OP-0319"
+    },
+    {
+      code: "EXC-DOS-0003",
+      title: "Corpo do Sentir",
+      type: "ENTIDADE",
+      status: "ATIVA",
+      summary: "Entidade alimentada por energia emocional coletiva, associada ao material pigmentado distribuído na operação Vernissage. Origem e extensão total ainda sob investigação.",
+      linked: "EXC-OP-0741"
+    },
+    {
+      code: "EXC-DOS-0004",
+      title: "Chupa-cabra",
+      type: "ENTIDADE",
+      status: "CONTIDA",
+      summary: "Criatura associada a ataques a animais de criação na região do Maine. O encontro resultou no recrutamento do agente Hector Ignacius.",
+      linked: ""
+    },
+    {
+      code: "EXC-DOS-0005",
+      title: "Residência Abandonada, Minas Gerais",
+      type: "LOCAL",
+      status: "MONITORADO",
+      summary: "Imóvel desocupado onde foi registrada a primeira atividade confirmada da Fundação na região. Mantido sob observação periódica.",
+      linked: "EXC-INC-0001"
+    },
+    {
+      code: "EXC-DOS-0006",
+      title: "Litoral da Flórida",
+      type: "LOCAL",
+      status: "LIBERADO",
+      summary: "Trecho costeiro da Costa Leste dos Estados Unidos, cenário da operação Maré Alta. Sem atividade anômala registrada desde o encerramento do caso.",
+      linked: "EXC-OP-0319"
+    },
+    {
+      code: "EXC-DOS-0007",
+      title: "Galeria de Arte, San Francisco",
+      type: "LOCAL",
+      status: "SOB VIGILÂNCIA",
+      summary: "Espaço expositivo central na distribuição do material pigmentado investigado na operação Vernissage. Monitoramento ativo da equipe Taj Mahal.",
+      linked: "EXC-OP-0741"
+    },
+    {
+      code: "EXC-DOS-0008",
+      title: "Iluminatti",
+      type: "ORGANIZAÇÃO",
+      status: "HOSTIL",
+      summary: "Conspiração de abrangência internacional que busca uma nova ordem mundial por meios paranormais. Principal adversária institucional da Fundação Excalibur.",
+      linked: ""
+    },
+    {
+      code: "EXC-DOS-0009",
+      title: "Chroma Importação e Pigmentos Ltda.",
+      type: "ORGANIZAÇÃO",
+      status: "EM INVESTIGAÇÃO",
+      summary: "Empresa de fachada identificada na cadeia de distribuição do material pigmentado associado à operação Vernissage. Suspeita de vínculo com a Iluminatti ainda não confirmada oficialmente.",
+      linked: "EXC-INC-0009"
+    }
+  ];
+
   const agents = [
   {
     code: "EXC-0204",
@@ -632,6 +707,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const overviewBtn = document.getElementById("overviewBtn");
   const missionsBtn = document.getElementById("missionsBtn");
   const incidentsBtn = document.getElementById("incidentsBtn");
+  const dossiersBtn = document.getElementById("dossiersBtn");
   const agentsBtn = document.getElementById("agentsBtn");
   const menuButtons = document.querySelectorAll(".menu-button");
 
@@ -641,10 +717,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const incidentModal = document.getElementById("incidentModal");
   const closeIncidentModal = document.getElementById("closeIncidentModal");
 
+  const dossierModal = document.getElementById("dossierModal");
+  const closeDossierModal = document.getElementById("closeDossierModal");
+
   const agentModal = document.getElementById("agentModal");
   const closeAgentModal = document.getElementById("closeAgentModal");
 
   let akaneTimers = [];
+  let activeDossierType = "ENTIDADE";
   
   const overviewContent = contentArea.innerHTML;
 
@@ -771,6 +851,97 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function closeIncidentDetails() {
     incidentModal.classList.remove("active");
+  }
+
+  function renderDossiersSection() {
+    const types = [
+      { key: "ENTIDADE", label: "ENTIDADES" },
+      { key: "LOCAL", label: "LOCAIS" },
+      { key: "ORGANIZAÇÃO", label: "ORGANIZAÇÕES" }
+    ];
+
+    const tabs = types.map(function (t) {
+      const activeClass = t.key === activeDossierType ? " active" : "";
+      return `<button class="subtab-button${activeClass}" data-type="${t.key}">${t.label}</button>`;
+    }).join("");
+
+    const filtered = dossiers.filter(function (dossier) {
+      return dossier.type === activeDossierType;
+    });
+
+    const rows = filtered.map(function (dossier) {
+      return `
+        <tr class="clickable-row" data-code="${dossier.code}">
+          <td>${dossier.code}</td>
+          <td>${dossier.title}</td>
+          <td>${dossier.status}</td>
+        </tr>
+      `;
+    }).join("");
+
+    contentArea.innerHTML = `
+      <section class="database-panel">
+        <div class="panel-header">
+          <h2>DOSSIÊS REGISTRADOS</h2>
+          <span>EXCALIBUR REFERENCE DATABASE</span>
+        </div>
+
+        <div class="subtab-row">
+          ${tabs}
+        </div>
+
+        <table class="mission-table">
+          <thead>
+            <tr>
+              <th>CÓDIGO</th>
+              <th>DESIGNAÇÃO</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            ${rows}
+          </tbody>
+        </table>
+      </section>
+    `;
+
+    document.querySelectorAll(".subtab-button").forEach(function (button) {
+      button.addEventListener("click", function () {
+        activeDossierType = button.getAttribute("data-type");
+        renderDossiersSection();
+      });
+    });
+
+    document.querySelectorAll(".clickable-row").forEach(function (row) {
+      row.addEventListener("click", function () {
+        const code = row.getAttribute("data-code");
+        const dossier = dossiers.find(function (item) {
+          return item.code === code;
+        });
+
+        if (dossier) {
+          openDossierModal(dossier);
+        }
+      });
+    });
+  }
+
+  function openDossierModal(dossier) {
+    document.getElementById("modalDossierCode").textContent = dossier.code;
+    document.getElementById("modalDossierName").textContent = dossier.title;
+    document.getElementById("modalDossierType").textContent = dossier.type;
+    document.getElementById("modalDossierStatus").textContent = dossier.status;
+    document.getElementById("modalDossierSummary").textContent = dossier.summary || "Sem resumo disponível.";
+
+    const linkedItems = dossier.linked ? [dossier.linked] : [];
+    renderList("modalDossierLinked", linkedItems, "Nenhum vínculo registrado.");
+
+    dossierModal.classList.add("active");
+  }
+
+  function closeDossierDetails() {
+    dossierModal.classList.remove("active");
   }
 
   function renderList(containerId, items, emptyText) {
@@ -1065,6 +1236,12 @@ incidentsBtn.addEventListener("click", function () {
   renderIncidentsList();
 });
 
+dossiersBtn.addEventListener("click", function () {
+  setActiveButton(dossiersBtn);
+  activeDossierType = "ENTIDADE";
+  renderDossiersSection();
+});
+
 agentsBtn.addEventListener("click", function () {
   setActiveButton(agentsBtn);
 
@@ -1129,6 +1306,14 @@ closeIncidentModal.addEventListener("click", closeIncidentDetails);
 incidentModal.addEventListener("click", function (event) {
   if (event.target === incidentModal) {
     closeIncidentDetails();
+  }
+});
+
+closeDossierModal.addEventListener("click", closeDossierDetails);
+
+dossierModal.addEventListener("click", function (event) {
+  if (event.target === dossierModal) {
+    closeDossierDetails();
   }
 });
 
