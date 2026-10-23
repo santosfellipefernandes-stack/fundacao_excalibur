@@ -93,59 +93,88 @@ document.addEventListener("DOMContentLoaded", function () {
       code: "EXC-INC-0001",
       title: "Residência Abandonada, Minas Gerais",
       status: "ENCERRADO",
-      description: "Primeiro relato de atividade confirmada na região.",
+      threatLevel: "CONTIDA",
+      location: "Zona rural, interior de Minas Gerais",
+      date: "08/02",
+      summary: "Primeiro relato de atividade confirmada na região — moradores reportaram ruídos e vultos recorrentes numa residência desocupada há anos. Investigação de campo confirmou presença de entidade não catalogada, posteriormente neutralizada.",
       archived: true
     },
     {
       code: "EXC-INC-0002",
       title: "Avistamentos na Costa Leste",
       status: "ESCALONADO",
-      description: "Relatos que originaram a operação Maré Alta.",
+      threatLevel: "MÉDIA",
+      location: "Litoral da Flórida, Estados Unidos",
+      date: "19/03",
+      summary: "Pescadores e banhistas relataram criatura marinha de grande porte com comportamento anômalo. O padrão recorrente de ataques levou à abertura de operação formal.",
+      relatedMission: "Maré Alta (EXC-OP-0319)",
       archived: true
     },
     {
       code: "EXC-INC-0003",
       title: "Colapsos Emocionais Associados a Pigmento",
       status: "ESCALONADO",
-      description: "Relatos que deram origem à operação Vernissage.",
+      threatLevel: "ALTA",
+      location: "San Francisco, Califórnia",
+      date: "02/05",
+      summary: "Múltiplos casos de colapso emocional súbito associados ao contato com material pigmentado de origem não identificada. Escalado para operação ativa diante do risco de exposição contínua.",
+      relatedMission: "Vernissage (EXC-OP-0741)",
       archived: true
     },
     {
       code: "EXC-INC-0004",
       title: "Transmissões Anômalas em Rádio Desativada",
       status: "ENCERRADO",
-      description: "Rastreado a interferência atmosférica; sem componente paranormal.",
+      threatLevel: "DESCARTADA",
+      location: "Estação de rádio desativada, interior",
+      date: "27/01",
+      summary: "Moradores reportaram transmissões não identificadas captadas por rádios antigos. Perícia técnica rastreou o fenômeno a interferência atmosférica recorrente na região; sem componente paranormal confirmado.",
       archived: true
     },
     {
       code: "EXC-INC-0005",
       title: "Mortandade Animal em Propriedade Rural",
       status: "EM ANÁLISE",
-      description: "Causa ainda não determinada."
+      threatLevel: "INDETERMINADA",
+      location: "Propriedade rural, região não divulgada",
+      date: "15/06",
+      summary: "Produtor rural relatou morte súbita de parte do rebanho sem sinais de predação ou doença aparente. Amostras coletadas aguardam laudo do Scriptorium."
     },
     {
       code: "EXC-INC-0006",
       title: "Figura Humanoide em Linha de Metrô",
       status: "AGUARDANDO CLASSIFICAÇÃO",
-      description: "Sem avaliação técnica realizada até o momento."
+      threatLevel: "INDETERMINADA",
+      location: "Linha de metrô, área urbana",
+      date: "03/07",
+      summary: "Passageiros relataram figura humanoide parada sobre os trilhos segundos antes da chegada de uma composição, sem registro em câmeras de segurança. Caso aguarda triagem."
     },
     {
       code: "EXC-INC-0007",
       title: "Objeto Não Identificado em Naufrágio",
       status: "AGUARDANDO CLASSIFICAÇÃO",
-      description: "Sem avaliação técnica realizada até o momento."
+      threatLevel: "INDETERMINADA",
+      location: "Sítio de naufrágio, águas internacionais",
+      date: "21/07",
+      summary: "Equipe de resgate recuperou objeto de origem desconhecida durante operação de salvamento. Material foi isolado e aguarda análise."
     },
     {
       code: "EXC-INC-0008",
       title: "Interferência Eletromagnética em Torre de Transmissão",
       status: "CONTIDO",
-      description: "Monitoramento ativo, sem expansão registrada."
+      threatLevel: "BAIXA",
+      location: "Torre de transmissão regional",
+      date: "09/08",
+      summary: "Picos de interferência eletromagnética sem causa técnica identificada afetaram comunicações locais. Fenômeno monitorado, sem expansão ou recorrência significativa."
     },
     {
       code: "EXC-INC-0009",
       title: "Movimentação Suspeita de Empresa de Fachada",
       status: "EM MONITORAMENTO",
-      description: "Possível ligação com rede de interesses ainda não confirmada."
+      threatLevel: "MÉDIA",
+      location: "Não divulgado",
+      date: "30/08",
+      summary: "Registros financeiros apontam movimentação atípica de uma empresa de fachada com possíveis ligações a redes de interesse ainda não confirmadas. Investigação discreta em curso."
     }
   ];
 
@@ -609,6 +638,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const missionModal = document.getElementById("missionModal");
   const closeMissionModal = document.getElementById("closeMissionModal");
 
+  const incidentModal = document.getElementById("incidentModal");
+  const closeIncidentModal = document.getElementById("closeIncidentModal");
+
   const agentModal = document.getElementById("agentModal");
   const closeAgentModal = document.getElementById("closeAgentModal");
 
@@ -676,13 +708,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function renderIncidentsList() {
     const rows = incidents.map(function (incident) {
-      const archivedClass = incident.archived ? " archived" : "";
-
       return `
-        <div class="incident-item${archivedClass}">
-          <strong>${incident.code} — ${incident.title}</strong>
-          <p>${incident.status} · ${incident.description}</p>
-        </div>
+        <tr class="clickable-row" data-code="${incident.code}">
+          <td>${incident.code}</td>
+          <td>${incident.title}</td>
+          <td>${incident.status}</td>
+        </tr>
       `;
     }).join("");
 
@@ -693,11 +724,53 @@ document.addEventListener("DOMContentLoaded", function () {
           <span>EXCALIBUR OCCURRENCE LOG</span>
         </div>
 
-        <div class="incident-list">
-          ${rows}
-        </div>
+        <table class="mission-table">
+          <thead>
+            <tr>
+              <th>CÓDIGO</th>
+              <th>DESIGNAÇÃO</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            ${rows}
+          </tbody>
+        </table>
       </section>
     `;
+
+    document.querySelectorAll(".clickable-row").forEach(function (row) {
+      row.addEventListener("click", function () {
+        const code = row.getAttribute("data-code");
+        const incident = incidents.find(function (item) {
+          return item.code === code;
+        });
+
+        if (incident) {
+          openIncidentModal(incident);
+        }
+      });
+    });
+  }
+
+  function openIncidentModal(incident) {
+    document.getElementById("modalIncidentCode").textContent = incident.code;
+    document.getElementById("modalIncidentName").textContent = incident.title;
+    document.getElementById("modalIncidentStatus").textContent = incident.status;
+    document.getElementById("modalIncidentThreat").textContent = incident.threatLevel || "INDETERMINADA";
+    document.getElementById("modalIncidentLocation").textContent = incident.location || "NÃO DISPONÍVEL";
+    document.getElementById("modalIncidentDate").textContent = incident.date || "NÃO DISPONÍVEL";
+    document.getElementById("modalIncidentSummary").textContent = incident.summary || "Sem resumo disponível.";
+
+    const relatedItems = incident.relatedMission ? [incident.relatedMission] : [];
+    renderList("modalIncidentRelated", relatedItems, "Nenhuma operação vinculada.");
+
+    incidentModal.classList.add("active");
+  }
+
+  function closeIncidentDetails() {
+    incidentModal.classList.remove("active");
   }
 
   function renderList(containerId, items, emptyText) {
@@ -1048,6 +1121,14 @@ closeMissionModal.addEventListener("click", closeModal);
 missionModal.addEventListener("click", function (event) {
   if (event.target === missionModal) {
     closeModal();
+  }
+});
+
+closeIncidentModal.addEventListener("click", closeIncidentDetails);
+
+incidentModal.addEventListener("click", function (event) {
+  if (event.target === incidentModal) {
+    closeIncidentDetails();
   }
 });
 
