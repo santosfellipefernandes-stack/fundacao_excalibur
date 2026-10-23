@@ -31,7 +31,7 @@
         <button class="menu-button active" id="overviewBtn">VISÃO GERAL</button>
         <button class="menu-button" id="missionsBtn">MISSÕES</button>
         <button class="menu-button" id="incidentsBtn">INCIDENTES</button>
-        <button class="menu-button">DOSSIÊS</button>
+        <button class="menu-button" id="dossiersBtn">DOSSIÊS</button>
         <button class="menu-button">ARTEFATOS</button>
         <button class="menu-button" id="agentsBtn">AGENTES</button>
         <button class="menu-button">RELATÓRIOS</button>
@@ -194,6 +194,34 @@
 
         <h3>Operação Vinculada</h3>
         <div id="modalIncidentRelated"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="dossierModal">
+    <div class="mission-modal">
+
+      <div class="modal-header">
+        <div>
+          <p class="section-kicker" id="modalDossierCode">EXC-DOS-0000</p>
+          <h2 id="modalDossierName">DOSSIÊ</h2>
+        </div>
+
+        <button class="modal-close" id="closeDossierModal">FECHAR</button>
+      </div>
+
+      <div class="modal-content">
+        <p><strong>Tipo:</strong> <span id="modalDossierType"></span></p>
+        <p><strong>Status:</strong> <span id="modalDossierStatus"></span></p>
+
+        <hr>
+
+        <h3>Resumo</h3>
+        <p id="modalDossierSummary"></p>
+
+        <h3>Vínculo Registrado</h3>
+        <div id="modalDossierLinked"></div>
       </div>
 
     </div>
