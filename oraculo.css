@@ -833,6 +833,7 @@ h1 {
   }
 }
 
+
 .rgb-intrusion {
   position: absolute;
   inset: 0;
@@ -854,4 +855,29 @@ h1 {
 .rgb-intrusion-fade {
   opacity: 0;
   pointer-events: none;
+}
+
+.subtab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.subtab-button {
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid rgba(217, 164, 65, 0.28);
+  color: #d9a441;
+  font-family: "Courier New", monospace;
+  letter-spacing: 1px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.subtab-button:hover,
+.subtab-button.active {
+  background: rgba(217, 164, 65, 0.12);
+  border-color: rgba(240, 196, 106, 0.8);
+  color: #f0c46a;
 }
